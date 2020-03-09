@@ -52,7 +52,7 @@
                                     <p><?php echo $donnees['histoire'] ?></p>
                                 </div>
                                 <div class="lireChapitre">
-                                    <a href="chapitresChoisis?id=<?php echo $donnees['id'] ?>">Lire le chapitre</a>
+                                    <a href="chapitresChoisis.php?id=<?php echo $donnees['id'] ?>">Lire le chapitre</a>
                                 </div>
                             </div>
 

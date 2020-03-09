@@ -21,6 +21,10 @@
 
 .lireChapitre{
 	margin-top: 1em;
+	display: flex;
+	justify-content: space-around;
+	
+	width: 60%;
 }
 
 .lireChapitre a{
