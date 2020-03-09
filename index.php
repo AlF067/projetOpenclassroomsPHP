@@ -28,9 +28,32 @@
         </header>
         <section>
             <div id="desc">
-                <div id="billets"></div>
-                <div id="billets"></div>
-                <div id="billets"></div>
+                <div id="billets">
+                     <?php 
+                       try
+                        {
+                            $bdd = new PDO('mysql:host=localhost;dbname=chapitresjean;port=3308', 'root', '');
+                            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            
+                        }
+                        catch(Exception $e)
+                        {
+                                die('Erreur : '.$e->getMessage());
+                        }
+                        $reponse = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC LIMIT 0,3');
+                       
+                        while ($donnees = $reponse->fetch())
+                        {
+                        ?>
+                          <div class="billet">
+                            <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
+                            <p><?php echo $donnees['histoire'] ?></p>
+                          </div>
+                        <?php 
+                        }
+                        $reponse->closeCursor();
+                    ?>   
+                </div>
 
                 <p><a href="tousLesChapitres.php">Tous les chapitres</a></p>
             </div>
