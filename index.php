@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="stylesGeneral.css">
+        <link rel="stylesheet" type="text/css" href="stylesIndex.css">
         <title>blog</title>
     </head>
     <body>
