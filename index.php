@@ -15,9 +15,9 @@
                 <nav>
                     <ul>
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="#">Qui suis-je ?</a></li>
-                        <li><a href="tousLesChapitres.php">Chapitres</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="biographie.php">Qui suis-je ?</a></li>
+                        <li><a href="chapitres.php">Chapitres</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -32,7 +32,7 @@
                      <?php 
                        try
                         {
-                            $bdd = new PDO('mysql:host=localhost;dbname=chapitresjean;port=3308', 'root', '');
+                            $bdd = new PDO('mysql:host=localhost;dbname=blog;port=3308', 'root', '');
                             $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             
                         }
@@ -55,7 +55,7 @@
                     ?>   
                 </div>
 
-                <p><a href="tousLesChapitres.php">Tous les chapitres</a></p>
+                <p><a href="chapitres.php">Tous les chapitres</a></p>
             </div>
             
         </section>
@@ -63,13 +63,13 @@
             <div id="mentions">
                 
                 <ul>
-                    <li><a href="#">Accueil</a></li>
+                    <li><a href="index.php">Accueil</a></li>
                     <li>/</li>
-                    <li><a href="#">Qui suis-je ?</a></li>
+                    <li><a href="biographie.php">Qui suis-je ?</a></li>
                     <li>/</li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="chapitres.php">Chapitres</a></li>
                     <li>/</li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li>/</li>
                     <li><a href="#">Mentions Légales</a></li>
                 </ul>
