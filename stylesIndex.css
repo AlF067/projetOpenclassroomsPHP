@@ -43,7 +43,11 @@ section{
 
 .billet{
 	overflow: hidden;
-	height: 85%;
+	height: 84%;
+}
+
+.lireChapitre{
+	margin-top: 0.5em;
 }
 
 section a{
