@@ -45,13 +45,16 @@
                         {
                         ?>
                             <div class="blocChapitre">
-                              <div class="chapitre">
-                                <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
-                                <p><?php echo $donnees['histoire'] ?></p>
-                              </div>
-                              <div class="lireChapitre"><a href="chapitreChoisi">Lire le chapitre</a></div>
+                                <div class="chapitre">
+                                    <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
+                                    <p><?php echo $donnees['histoire'] ?></p>
+                                </div>
+                                <div class="lireChapitre">
+                                    <a href="chapitresChoisis?id=<?php echo $donnees['id'] ?>">Lire le chapitre</a>
+                                </div>
                             </div>
                         <?php 
+
                         }
                         $reponse->closeCursor();
                     ?>   

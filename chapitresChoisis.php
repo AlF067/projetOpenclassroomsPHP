@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="stylesGeneral.css">
-        <link rel="stylesheet" type="text/css" href="stylesIndex.css">
+        <link rel="stylesheet" type="text/css" href="stylesChapitres.css">
         <title>blog</title>
     </head>
     <body>
@@ -28,43 +28,32 @@
             </div>  
         </header>
         <section>
-            <div id="desc">
-                <div id="billets">
-                     <?php 
+               <?php 
                        try
                         {
                             $bdd = new PDO('mysql:host=localhost;dbname=blog;port=3308', 'root', '');
-                            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            
+                            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
                         }
                         catch(Exception $e)
                         {
                                 die('Erreur : '.$e->getMessage());
                         }
-                        $reponse = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC LIMIT 0,3');
-                       
-                        while ($donnees = $reponse->fetch())
-                        {
+                        $req = $bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
+                        $req->execute(array($_GET["id"]));
+
+                        $donnees = $req->fetch();
+                        
                         ?>
-                            <div class="blocBillet">
-                                <div class="billet">
-                                    <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
-                                    <p><?php echo $donnees['histoire'] ?></p>
-                                </div>
-                                <div class="lireChapitre">
-                                    <a href="chapitresChoisis?id=<?php echo $donnees['id'] ?>">Lire le chapitre</a>
-                                </div>
-                            </div>
-
+                        <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
+                        <p><?php echo $donnees['histoire'] ?></p>
+                        
                         <?php 
-                        }
-                        $reponse->closeCursor();
-                    ?> 
-                </div>
+                        
+                        $req->closeCursor();
+                    ?>
 
-                <p><a href="chapitres.php">Tous les chapitres</a></p>
-            </div>
-            
+                    <div><a href="chapitres.php">Retour au choix des chapitres</a></div>   
+                     
         </section>
         <footer>
             <div id="mentions">
