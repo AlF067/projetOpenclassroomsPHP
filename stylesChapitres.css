@@ -1,0 +1,28 @@
+
+.blocChapitre{
+	background-color: rgb(220,220,220);
+	margin: 1em 0;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 2em;
+}
+
+
+.chapitre{
+	height: 158px;
+	overflow: hidden;
+	
+	margin: 0 1em;	
+	padding: 0 1em;
+	
+}
+
+.lireChapitre{
+	margin-top: 1em;
+}
+
+.lireChapitre a{
+	text-decoration: none;
+}
