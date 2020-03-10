@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-        	<p>PAGE ADMIN</p> 	
+        	<p>PAGE ADMINISTRATEUR</p> 	
         </header>
         <section id="ajout">
         	<p><a href="ajout.php"><i class="far fa-plus-square"></i> Ajouter un article</a></p>

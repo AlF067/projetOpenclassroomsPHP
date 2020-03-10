@@ -1,0 +1,94 @@
+
+header{
+	width: 100%;
+	height: 100px;
+	background-color: rgb(112,160,196);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 2em;
+}
+
+header p{
+	font-size: 3em;
+}
+
+#ajout{
+	background-color: gray;
+	height: 600px;
+	width: 100%;
+	margin-top: 0.5em;
+}
+
+section{
+	margin-top: 1em; 
+	height: 800px;
+
+	background-color: rgb(220,220,220);
+}
+
+form{
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	height: 95%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+#caseTitre{
+	margin: 1em 0;
+}
+
+#caseTitre input{
+	border-radius: 1em;
+}
+
+#caseHistoire{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+	height: 90%;
+}
+
+textarea{
+	height: 100%;
+	width: 99%;
+	margin-top: 1em;
+	border-radius: 1em;
+}
+
+#bouton{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 1.5em 0;
+
+}
+
+button{
+	border-radius: 1em;
+}
+
+footer{
+	height: 60px;
+	background-color: red;
+}
+
+#copywright{
+	width: 100%;
+	height: 100%;
+	background-color: rgb(112,160,196);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#copywright p{
+	margin: 0;
+}
