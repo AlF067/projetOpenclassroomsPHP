@@ -1,0 +1,36 @@
+header{
+	background: url(image/ecrivain.jpg) no-repeat center center ;
+	background-size: cover;
+	height: 800px;
+	display: flex;
+	justify-content: center;
+}
+
+#banniere{
+	background-color: rgba(220,220,220,0.8);
+}
+
+#copywright{
+	background-color: rgb(220,220,220);
+}
+
+section{
+	display: flex;
+	justify-content: center;
+	background-color: rgb(220,220,220);
+}
+
+#desc{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	bottom: 150px;
+	width: 90%;
+	padding: 1em;
+	border-radius: 1em;
+	text-align: justify;
+	color: white;
+	background-color: rgb(50, 50, 50);
+	z-index: 1;
+}
