@@ -25,6 +25,14 @@ function chapitres(){
 	$chapitres = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC ');
 	return $chapitres;
 }
+
+function chapitresChoisis(){
+	$bdd = connexionBdd();
+	$chapitresChoisis = $bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
+	$chapitresChoisis->execute(array($_GET["id"]));
+	
+	return $chapitresChoisis;
+}
                 
 
 ?>

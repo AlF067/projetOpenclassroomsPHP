@@ -1,6 +1,6 @@
 <?php $title = "Accueil" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="stylesIndex.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesIndex.css">' ?>
 <?php ob_start();  ?>
 
             <div id="desc">

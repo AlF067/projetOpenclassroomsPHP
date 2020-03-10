@@ -4,7 +4,7 @@ body{
 
 					/* HEADER */
 
-#header{
+header{
 	background: url(../image/alaska22.jpg) no-repeat center center ;
 	background-size: cover;
 	height: 800px;
