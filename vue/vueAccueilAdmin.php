@@ -19,7 +19,7 @@
                                 <div class="lireChapitre">
                                     <a href="../controleur/chapitresChoisis.php?id=<?php echo $donnees['id'] ?>">Lire</a>
                                     <a href="#">Supprimer</a>
-                                    <a href="modificationAdmin.php">Modifer</a>     
+                                    <a href="modificationAdmin.php?id=<?php echo $donnees['id'] ?>">Modifer</a>     
                                 </div>
                             </div>
                         <?php 

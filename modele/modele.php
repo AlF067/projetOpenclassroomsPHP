@@ -48,6 +48,14 @@ function ajouterChapitre(){
 
 function modifierChapitre(){
 	$bdd = connexionBdd();
+	$modifierChapitre = $bdd->prepare("UPDATE `chapitres` SET `titre`= :titre,`histoire`= :histoire WHERE `id`= :id");
+	$modifierChapitre->execute(array(
+		'id' => $_POST["id"],
+		'titre' => $_POST["modifTitre"] ,
+		'histoire' => $_POST["modifHistoire"]
+	));
+
+	return $modifierChapitre;
 
 }
 
