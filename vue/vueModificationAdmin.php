@@ -8,7 +8,7 @@
             <p>Modification d'un chapitre , <?php echo $donnees['titre'] ; ?></p>
         </section>
         <section id="sectionFormulaire">
-            <form method="POST" action="admin.php">  
+            <form method="POST" action="../controleur/admin.php">  
                 <div id="caseTitre">
                     <label for="modifTitre">Titre : </label><input type="text" name="modifTitre" id="modifTitre" value = "<?php echo $donnees['titre'] ; ?>" >
                 </div>
@@ -22,6 +22,7 @@
                 </div>
                 <input type="hidden" name="id" value="<?php echo $donnees['id'] ; ?>" >
             </form>
+            <a href="../admin.php">Retour</a>
         </section>
 
 <?php $contenuAdmin = ob_get_clean();  ?>
