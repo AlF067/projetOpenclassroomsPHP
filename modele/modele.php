@@ -33,6 +33,27 @@ function chapitresChoisis(){
 	
 	return $chapitresChoisis;
 }
-                
+
+						/* PARTIE ADMINISTRATEUR */
+
+function ajouterChapitre(){
+	$bdd = connexionBdd();
+	$ajouterChapitre = $bdd->prepare("INSERT INTO `chapitres`(`titre`, `histoire`, `dateAjout`) VALUES (:titre, :histoire, CURDATE())");
+	$ajouterChapitre->execute(array(
+		'titre' => $_POST["titre"] ,
+		'histoire' => $_POST["histoire"]
+	));
+	return $ajouterChapitre;
+}
+
+function modifierChapitre(){
+	$bdd = connexionBdd();
+
+}
+
+function supprimerChapitre(){
+	$bdd = connexionBdd();
+
+}          
 
 ?>

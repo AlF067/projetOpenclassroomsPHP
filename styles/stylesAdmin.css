@@ -6,24 +6,14 @@ header{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	border-radius: 2em;
+	border-radius: 1em;
+	
 }
 
 header p{
 	font-size: 3em;
 }
-header nav{
-	
-	background-color: gray;
-	height: 50%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 0.5em;
-	border-radius: 2em;
 
-}
 
 header ul{
 	display: flex;
@@ -49,7 +39,7 @@ header a, li{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 2em;
+	border-radius: 1em;
 }
 
 
@@ -61,5 +51,22 @@ header a, li{
 	text-decoration: none;
 }
 
+footer{
+	height: 60px;
+	background-color: red;
+}
 
+#copywright{
+	width: 100%;
+	height: 100%;
+	background-color: rgb(112,160,196);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#copywright p{
+	margin: 0;
+}
 
