@@ -8,7 +8,7 @@
                 <li>/</li>
                 <li><a href="../controleur/chapitres.php">Chapitres</a></li>
                 <li>/</li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="../controleur/contact.php">Contact</a></li>
                 <li>/</li>
                 <li><a href="#">Mentions Légales</a></li>
             </ul>

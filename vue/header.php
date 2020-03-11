@@ -9,7 +9,7 @@
                     <li><a href="../index.php">Accueil</a></li>
                     <li><a href="../controleur/biographie.php">Qui suis-je ?</a></li>
                     <li><a href="../controleur/chapitres.php">Chapitres</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="../controleur/contact.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
