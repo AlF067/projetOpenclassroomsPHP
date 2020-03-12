@@ -1,0 +1,13 @@
+#suppression{
+	background-color: rgb(220, 220, 220);
+	border-radius: 1em 1em 0 0;
+	padding: 1em 0;
+	margin-top: 0.5em;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin: 1em 0;
+}

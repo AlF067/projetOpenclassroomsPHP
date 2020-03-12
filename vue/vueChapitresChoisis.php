@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">
-        <link rel="stylesheet" type="text/css" href="../styles/stylesChapitres.css">
+        <link rel="stylesheet" type="text/css" href="../styles/stylesChapitresChoisis.css">
         <title>blog</title>
     </head>
     <body>
         <?php require "header.php" ?>
         <section>
+            <div id="lecture">
                <?php 
                         
 
@@ -24,7 +25,7 @@
                     ?>
 
                     <div><a href="../controleur/chapitres.php">Retour au choix des chapitres</a></div>   
-                     
+            </div>     
         </section>
         <?php require "footer.php" ?>
         

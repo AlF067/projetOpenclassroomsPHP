@@ -16,7 +16,7 @@ function connexionBdd(){
 
 function chapitresAccueil(){
 	$bdd = connexionBdd();
-	$chapitresAccueil = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC LIMIT 0,3');
+	$chapitresAccueil = $bdd->query('SELECT * FROM chapitres ORDER BY titre DESC LIMIT 0,3');
 	return $chapitresAccueil;
 }
 
@@ -38,10 +38,11 @@ function chapitresChoisis(){
 
 function ajouterChapitre(){
 	$bdd = connexionBdd();
-	$ajouterChapitre = $bdd->prepare("INSERT INTO `chapitres`(`titre`, `histoire`, `dateAjout`) VALUES (:titre, :histoire, CURDATE())");
+	$ajouterChapitre = $bdd->prepare("INSERT INTO `chapitres`(`id`,`titre`, `histoire`, `dateAjout`) VALUES (:id, :titre, :histoire, CURDATE())");
 	$ajouterChapitre->execute(array(
 		'titre' => $_POST["titre"] ,
-		'histoire' => $_POST["histoire"]
+		'histoire' => $_POST["histoire"] ,
+		'id' => $_POST["id"]
 	));
 	return $ajouterChapitre;
 }
@@ -61,7 +62,8 @@ function modifierChapitre(){
 
 function supprimerChapitre(){
 	$bdd = connexionBdd();
-
+	$supprimerChapitre = $bdd->prepare("DELETE FROM `chapitres` WHERE `id`= :id");
+	$supprimerChapitre->execute(array('id' => $_POST["id"]));	
 }          
 
 ?>

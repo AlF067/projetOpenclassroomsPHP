@@ -18,7 +18,7 @@
                     </div>
                     <div class="lireChapitre">
                         <a href="../controleur/chapitresChoisis.php?id=<?php echo $donnees['id'] ?>">Lire</a>
-                        <a href="#">Supprimer</a>
+                        <a href="../vue/vueConfirmationSuppressionAdmin.php?id=<?php echo $donnees['id'] ?>">Supprimer</a>
                         <a href="../controleur/modificationAdmin.php?id=<?php echo $donnees['id'] ?>">Modifer</a>     
                     </div>
                 </div>

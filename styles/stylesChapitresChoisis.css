@@ -1,0 +1,28 @@
+section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(220,220,220);
+}
+
+#lecture{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	position: relative;
+	bottom: 150px;
+	width: 90%;
+	height: 100%;
+	padding: 1em;
+	border-radius: 1em;
+	text-align: justify;
+	color: white;
+	background-color: rgb(50, 50, 50);
+	z-index: 1;
+}
+
+#lecture a{
+	text-decoration: none;
+}

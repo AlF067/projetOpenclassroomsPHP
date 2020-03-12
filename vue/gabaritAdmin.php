@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
+          <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> 
+  <script>tinymce.init({ selector:'textarea' });</script>
         <?php echo $linkStylesGeneral; ?>
         <?php echo $linkStyles; ?>
         <link rel="stylesheet"  href="fontawesome/css/all.css">
