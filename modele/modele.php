@@ -79,16 +79,27 @@ function supprimerChapitre()
 
 function commentaires()
 {
+	if (isset($_GET["limitMin"])) {
+		$limitMin = $_GET["limitMin"];
+	}else{
+		$limitMin = 0;
+	}
+	
 	$bdd = connexionBdd();
-	$commentaires = $bdd->query('SELECT * FROM commentaires ORDER BY dateHeure DESC ');
+	$commentaires = $bdd->prepare('SELECT commentaires.pseudo, commentaires.commentaire, commentaires.dateHeure FROM commentaires INNER JOIN chapitres ON commentaires.idChapitre = chapitres.idChapitre WHERE chapitres.idChapitre = :id ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
+	$commentaires ->bindValue(':id', $_GET["id"], PDO::PARAM_INT);
+	$commentaires ->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
+	
+	$commentaires->execute() or die(print_r($req->errorInfo(), TRUE));
 	return $commentaires;
 }
 
 function ajoutCommentaires()
 {
 	$bdd = connexionBdd();
-	$ajoutCommentaires = $bdd->prepare("INSERT INTO `commentaires`(`pseudo`, `commentaire`, `dateHeure`) VALUES (:pseudo, :commentaire, NOW())");
+	$ajoutCommentaires = $bdd->prepare("INSERT INTO `commentaires`(`idChapitre`, `pseudo`, `commentaire`, `dateHeure`) VALUES (:idChapitre, :pseudo, :commentaire, NOW())");
 	$ajoutCommentaires->execute(array(
+		'idChapitre' => $_POST["idChapitre"],
 		'pseudo' => $_POST["pseudo"],
 		'commentaire' => $_POST["commentaire"]
 
