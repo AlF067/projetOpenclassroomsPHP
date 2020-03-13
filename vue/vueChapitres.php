@@ -19,6 +19,7 @@
 
                         }
                         $chapitres->closeCursor();
+                        ;
                 ?>      
 
 <?php $contenu = ob_get_clean();  ?>

@@ -45,9 +45,16 @@
             }
             ?>
             <div id="pages">
-                <a href="../controleur/chapitresChoisis.php?id=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=0">1 ,</a>
-                <a href="../controleur/chapitresChoisis.php?id=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=3">2 ,</a>
-                <a href="../controleur/chapitresChoisis.php?id=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=6">3</a>
+                <?php $i = 0 ; 
+                $limitMin = 0 ; ?>
+
+                <?php while($limitMin <= $maxCommentaires){ ?>
+                <a href="../controleur/chapitresChoisis.php?id=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $i ; ?>-</a>
+              <?php $limitMin +=3 ; ?>
+              <?php $i++ ; ?>
+              
+            <?php } ?>
+
             </div>
 
             <?php $commentaires->closeCursor();  ?>

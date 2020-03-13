@@ -106,3 +106,27 @@ function ajoutCommentaires()
 	));
 	return $ajoutCommentaires;
 }
+
+function maxCommentaires(){
+	$bdd = connexionBdd();
+	$req = $bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre ORDER BY id DESC ");
+	$req->execute(array('idChapitre' => $_GET["id"]));
+	$maxCommentaires = 0;
+    while ($donnees = $req->fetch()) { 
+        $maxCommentaires++;
+    }
+	return $maxCommentaires;
+}
+
+function maxChapitres(){
+	$bdd = connexionBdd();
+	$req = $bdd->query("SELECT * FROM `chapitres` WHERE idChapitre  ORDER BY id DESC ");
+	$maxChapitres = 0;
+    while ($donnees = $req->fetch()) { 
+        $maxChapitres++;
+    }
+	return $maxChapitres;
+}
+
+
+?>
