@@ -1,3 +1,5 @@
+				/* PARTIE LECTURE CHAPITRE*/
+
 section{
 	display: flex;
 	flex-direction: column;
@@ -27,14 +29,17 @@ section{
 	text-decoration: none;
 }
 
+				/* PARTIE COMMENTAIRES*/
+
 #rubriqueCommentaires{
 	
 	width: 90%;
 	display: flex;
 	justify-content: space-around;
-	
+	margin-bottom: 2em;
 	border: 1px gray solid;
 	border-bottom: none;
+	border-top: none;
 	border-radius: 2em 2em 3em 3em;
 }
 
@@ -54,15 +59,21 @@ textarea{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	background-color: blue;
+	width: 30%;
+	
 }
 
-#commentaires div{
-	background-color: green;
+#commentaires form{
+	
 	height: 90%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	border: 1px gray solid;
+	border-bottom: none;
+	border-top: none;
+	border-radius: 0.5em;
+	padding: 0.5em;
 
 }
 
@@ -71,12 +82,16 @@ textarea{
 	margin: 0;
 }
 
-#pseudoDate span{
+h4 span{
 	font-weight: normal;
 }
 
 #commentaires p{
 	margin: 0.5em 0.5em 0.5em 0;
+}
+
+#commentaires a{
+	text-decoration: none;
 }
 
 

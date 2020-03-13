@@ -1,69 +1,97 @@
-<?php 
-function connexionBdd(){	
-	try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=blog;port=3308', 'root', '');
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            
-        }
-    catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+<?php
 
-         return $bdd;
+/* GENERAL */
+
+function connexionBdd()
+{
+	try {
+		$bdd = new PDO('mysql:host=localhost;dbname=blog;port=3308', 'root', '');
+		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} catch (Exception $e) {
+		die('Erreur : ' . $e->getMessage());
+	}
+
+	return $bdd;
 }
 
-function chapitresAccueil(){
+
+/* PARTIE CLIENT */
+
+function chapitresAccueil()
+{
 	$bdd = connexionBdd();
 	$chapitresAccueil = $bdd->query('SELECT * FROM chapitres ORDER BY titre DESC LIMIT 0,3');
 	return $chapitresAccueil;
 }
 
-function chapitres(){
+function chapitres()
+{
 	$bdd = connexionBdd();
 	$chapitres = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC ');
 	return $chapitres;
 }
 
-function chapitresChoisis(){
+function chapitresChoisis()
+{
 	$bdd = connexionBdd();
 	$chapitresChoisis = $bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
 	$chapitresChoisis->execute(array($_GET["id"]));
-	
+
 	return $chapitresChoisis;
 }
 
-						/* PARTIE ADMINISTRATEUR */
+/* PARTIE ADMINISTRATEUR */
 
-function ajouterChapitre(){
+function ajouterChapitre()
+{
 	$bdd = connexionBdd();
 	$ajouterChapitre = $bdd->prepare("INSERT INTO `chapitres`(`id`,`titre`, `histoire`, `dateAjout`) VALUES (:id, :titre, :histoire, CURDATE())");
 	$ajouterChapitre->execute(array(
-		'titre' => $_POST["titre"] ,
-		'histoire' => $_POST["histoire"] ,
+		'titre' => $_POST["titre"],
+		'histoire' => $_POST["histoire"],
 		'id' => $_POST["id"]
 	));
 	return $ajouterChapitre;
 }
 
-function modifierChapitre(){
+function modifierChapitre()
+{
 	$bdd = connexionBdd();
 	$modifierChapitre = $bdd->prepare("UPDATE `chapitres` SET `titre`= :titre,`histoire`= :histoire WHERE `id`= :id");
 	$modifierChapitre->execute(array(
 		'id' => $_POST["id"],
-		'titre' => $_POST["modifTitre"] ,
+		'titre' => $_POST["modifTitre"],
 		'histoire' => $_POST["modifHistoire"]
 	));
 
 	return $modifierChapitre;
-
 }
 
-function supprimerChapitre(){
+function supprimerChapitre()
+{
 	$bdd = connexionBdd();
 	$supprimerChapitre = $bdd->prepare("DELETE FROM `chapitres` WHERE `id`= :id");
-	$supprimerChapitre->execute(array('id' => $_POST["id"]));	
-}          
+	$supprimerChapitre->execute(array('id' => $_POST["id"]));
+}
 
-?>
+
+/* RUBRIQUE COMMENTAIRES */
+
+function commentaires()
+{
+	$bdd = connexionBdd();
+	$commentaires = $bdd->query('SELECT * FROM commentaires ORDER BY dateHeure DESC ');
+	return $commentaires;
+}
+
+function ajoutCommentaires()
+{
+	$bdd = connexionBdd();
+	$ajoutCommentaires = $bdd->prepare("INSERT INTO `commentaires`(`pseudo`, `commentaire`, `dateHeure`) VALUES (:pseudo, :commentaire, NOW())");
+	$ajoutCommentaires->execute(array(
+		'pseudo' => $_POST["pseudo"],
+		'commentaire' => $_POST["commentaire"]
+
+	));
+	return $ajoutCommentaires;
+}
