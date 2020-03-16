@@ -27,7 +27,7 @@
                             $pages = 0;
                             $limitMin = 0;
                             $commentairesParPage = 0; 
-
+                            echo "<div id='nombreDePages'>Pages : </div>" ;
                             while ( $limitMin < $maxChapitres) { 
                                 ?>
                                 

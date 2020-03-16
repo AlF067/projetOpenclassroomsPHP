@@ -1,5 +1,7 @@
 <?php 
     require "modele/modele.php";
+    $maxChapitres = maxChapitres();
+    
     if (isset($_POST["histoire"])) {
         if ($_POST["histoire"] == true) {
             $ajouterChapitre = ajouterChapitre();

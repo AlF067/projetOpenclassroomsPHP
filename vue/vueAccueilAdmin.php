@@ -24,6 +24,35 @@
                 </div>
     <?php 
             }
+    ?>
+                <div id="paginationChapitres">
+                            <?php 
+                            $pages = 0;
+                            $limitMin = 0;
+                            $commentairesParPage = 0; 
+                            echo "<div>Pages : </div>" ;
+                            while ( $limitMin < $maxChapitres) { 
+                                ?>
+                                
+                                    <?php 
+                                     if ($pages == 0) {
+                                            
+                                        }else{
+                                            echo "<div class='slash'>/</div>";
+                                        } ?>
+                                    <div id="numerosPage">
+                                         <a href="../controleur/chapitres.php?page=<?php echo $pages ?>&limitMin=<?php echo $pages*5 ?> "><?php echo $pages ; ?></a>
+                                        
+                                    </div>
+                              
+                            <?php
+                            $commentairesParPage +=5;
+                            $limitMin +=5;
+                            $pages++ ;
+                            }
+                            ?>
+
+<?php
     $chapitres->closeCursor();
 
     ?> 
