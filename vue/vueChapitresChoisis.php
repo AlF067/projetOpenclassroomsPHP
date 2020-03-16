@@ -48,7 +48,7 @@
                 <?php $i = 0 ; 
                 $limitMin = 0 ; ?>
 
-                <?php while($limitMin <= $maxCommentaires){ ?>
+                <?php while($limitMin < $maxCommentaires){ ?>
                 <a href="../controleur/chapitresChoisis.php?id=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $i ; ?>-</a>
               <?php $limitMin +=3 ; ?>
               <?php $i++ ; ?>

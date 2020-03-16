@@ -26,9 +26,28 @@ function chapitresAccueil()
 
 function chapitres()
 {
+	if (isset($_GET['page'])) {
+    	$limitMin = $_GET['page'] * 5;
+    }else{	
+    	$limitMin = 0;
+    }
 	$bdd = connexionBdd();
-	$chapitres = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC ');
+	$chapitres = $bdd->prepare('SELECT * FROM chapitres ORDER BY id DESC LIMIT :limitMin , 5');
+	$chapitres ->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
+	
+	$chapitres->execute() or die(print_r($req->errorInfo(), TRUE));
 	return $chapitres;
+}
+
+function maxChapitres()
+{
+	$bdd = connexionBdd();
+	$reqMaxChapitres = $bdd->query('SELECT * FROM chapitres ORDER BY id DESC ');
+	$maxChapitres = 0;
+	while ( $donnees = $reqMaxChapitres->fetch()) {
+		$maxChapitres++;
+	}
+	return $maxChapitres;
 }
 
 function chapitresChoisis()
@@ -86,7 +105,7 @@ function commentaires()
 	}
 	
 	$bdd = connexionBdd();
-	$commentaires = $bdd->prepare('SELECT commentaires.pseudo, commentaires.commentaire, commentaires.dateHeure FROM commentaires INNER JOIN chapitres ON commentaires.idChapitre = chapitres.idChapitre WHERE chapitres.idChapitre = :id ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
+	$commentaires = $bdd->prepare('SELECT * FROM commentaires INNER JOIN chapitres ON commentaires.idChapitre = chapitres.idChapitre WHERE chapitres.idChapitre = :id ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
 	$commentaires ->bindValue(':id', $_GET["id"], PDO::PARAM_INT);
 	$commentaires ->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
 	
@@ -118,15 +137,6 @@ function maxCommentaires(){
 	return $maxCommentaires;
 }
 
-function maxChapitres(){
-	$bdd = connexionBdd();
-	$req = $bdd->query("SELECT * FROM `chapitres` WHERE idChapitre  ORDER BY id DESC ");
-	$maxChapitres = 0;
-    while ($donnees = $req->fetch()) { 
-        $maxChapitres++;
-    }
-	return $maxChapitres;
-}
 
 
 ?>
