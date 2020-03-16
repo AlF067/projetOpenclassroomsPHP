@@ -17,9 +17,9 @@
                         <p><?php echo $donnees['histoire'] ?></p>
                     </div>
                     <div class="lireChapitre">
-                        <a href="../controleur/chapitresChoisis.php?id=<?php echo $donnees['id'] ?>">Lire</a>
-                        <a href="../vue/vueConfirmationSuppressionAdmin.php?id=<?php echo $donnees['id'] ?>">Supprimer</a>
-                        <a href="../controleur/modificationAdmin.php?id=<?php echo $donnees['id'] ?>">Modifer</a>     
+                        <a href="controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $donnees['idChapitre'] ?>">Commentaires</a>
+                        <a href="../vue/vueConfirmationSuppressionAdmin.php?idChapitre=<?php echo $donnees['idChapitre'] ?>">Supprimer</a>
+                        <a href="../controleur/modificationAdmin.php?idChapitre=<?php echo $donnees['idChapitre'] ?>">Modifer</a>     
                     </div>
                 </div>
     <?php 
@@ -30,7 +30,7 @@
                             $pages = 0;
                             $limitMin = 0;
                             $commentairesParPage = 0; 
-                            echo "<div>Pages : </div>" ;
+                            echo "<div id='nombreDePages'>Pages : </div>" ;
                             while ( $limitMin < $maxChapitres) { 
                                 ?>
                                 
@@ -41,7 +41,7 @@
                                             echo "<div class='slash'>/</div>";
                                         } ?>
                                     <div id="numerosPage">
-                                         <a href="../controleur/chapitres.php?page=<?php echo $pages ?>&limitMin=<?php echo $pages*5 ?> "><?php echo $pages ; ?></a>
+                                         <a href="../admin.php?page=<?php echo $pages ?>"><?php echo $pages ; ?></a>
                                         
                                     </div>
                               

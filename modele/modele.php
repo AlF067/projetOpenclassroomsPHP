@@ -54,7 +54,7 @@ function chapitresChoisis()
 {
 	$bdd = connexionBdd();
 	$chapitresChoisis = $bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
-	$chapitresChoisis->execute(array($_GET["id"]));
+	$chapitresChoisis->execute(array($_GET["idChapitre"]));
 
 	return $chapitresChoisis;
 }
@@ -91,6 +91,7 @@ function supprimerChapitre()
 	$bdd = connexionBdd();
 	$supprimerChapitre = $bdd->prepare("DELETE FROM `chapitres` WHERE `id`= :id");
 	$supprimerChapitre->execute(array('id' => $_POST["id"]));
+	return $supprimerChapitre;
 }
 
 
@@ -105,8 +106,8 @@ function commentaires()
 	}
 	
 	$bdd = connexionBdd();
-	$commentaires = $bdd->prepare('SELECT * FROM commentaires INNER JOIN chapitres ON commentaires.idChapitre = chapitres.idChapitre WHERE chapitres.idChapitre = :id ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
-	$commentaires ->bindValue(':id', $_GET["id"], PDO::PARAM_INT);
+	$commentaires = $bdd->prepare('SELECT * FROM chapitres INNER JOIN commentaires  ON commentaires.idChapitre = chapitres.idChapitre WHERE commentaires.idChapitre = :idChapitre ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
+	$commentaires ->bindValue(':idChapitre', $_GET["idChapitre"], PDO::PARAM_INT);
 	$commentaires ->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
 	
 	$commentaires->execute() or die(print_r($req->errorInfo(), TRUE));
@@ -129,7 +130,7 @@ function ajoutCommentaires()
 function maxCommentaires(){
 	$bdd = connexionBdd();
 	$req = $bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre ORDER BY id DESC ");
-	$req->execute(array('idChapitre' => $_GET["id"]));
+	$req->execute(array('idChapitre' => $_GET["idChapitre"]));
 	$maxCommentaires = 0;
     while ($donnees = $req->fetch()) { 
         $maxCommentaires++;
@@ -137,6 +138,14 @@ function maxCommentaires(){
 	return $maxCommentaires;
 }
 
+function supprimerCommentaire()
+{
+	$bdd = connexionBdd();
+	$supprimerChapitre = $bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
+	$supprimerChapitre->execute(array('id' => $_POST["id"]));
+
+	return $supprimerCommentaire;
+}
 
 
 ?>
