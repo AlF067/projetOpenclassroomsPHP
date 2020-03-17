@@ -156,11 +156,11 @@ function maxCommentaires(){
 function supprimerCommentaire()
 {
 	$bdd = connexionBdd();
-	$supprimerChapitre = $bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
-	$supprimerChapitre->execute(array('id' => $_POST["id"]));
+	$supprimerCommentaire = $bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
+	$supprimerCommentaire->execute(array('id' => $_POST["id"]));
 
 	return $supprimerCommentaire;
 }
 
 
-?>
+
