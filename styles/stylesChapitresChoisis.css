@@ -7,6 +7,8 @@ section{
 	background-color: rgb(220,220,220);
 }
 
+
+
 #lecture{
 
 	display: flex;
@@ -55,15 +57,14 @@ textarea{
 	height: 40%;
 }
 
-#commentaires{
+#commentaires, #commentairesSignaler{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	width: 30%;
-	
+	width: 30%;	
 }
 
-#commentaires form{
+#commentaires form, #commentairesSignaler form {
 	
 	height: 90%;
 	display: flex;
@@ -103,7 +104,10 @@ h4 span{
 	display: flex;
 }
 
-
+#moderationCommentaires{
+	display: flex;
+	justify-content: space-around;	
+}
 
 
 
