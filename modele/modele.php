@@ -52,9 +52,14 @@ function maxChapitres()
 
 function chapitresChoisis()
 {
+	if (isset($_POST["idChapitre"])) {
+		$idChapitre = $_POST["idChapitre"];
+	}else{
+		$idChapitre = $_GET["idChapitre"];
+	}
 	$bdd = connexionBdd();
 	$chapitresChoisis = $bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
-	$chapitresChoisis->execute(array($_GET["idChapitre"]));
+	$chapitresChoisis->execute(array($idChapitre));
 
 	return $chapitresChoisis;
 }
@@ -104,10 +109,15 @@ function commentaires()
 	}else{
 		$limitMin = 0;
 	}
+	if (isset($_POST["idChapitre"])) {
+		$idChapitre = $_POST["idChapitre"];
+	}else{
+		$idChapitre = $_GET["idChapitre"];
+	}
 	
 	$bdd = connexionBdd();
 	$commentaires = $bdd->prepare('SELECT * FROM chapitres INNER JOIN commentaires  ON commentaires.idChapitre = chapitres.idChapitre WHERE commentaires.idChapitre = :idChapitre ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
-	$commentaires ->bindValue(':idChapitre', $_GET["idChapitre"], PDO::PARAM_INT);
+	$commentaires ->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
 	$commentaires ->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
 	
 	$commentaires->execute() or die(print_r($req->errorInfo(), TRUE));
@@ -128,9 +138,14 @@ function ajoutCommentaires()
 }
 
 function maxCommentaires(){
+	if (isset($_POST["idChapitre"])) {
+		$idChapitre = $_POST["idChapitre"];
+	}else{
+		$idChapitre = $_GET["idChapitre"];
+	}
 	$bdd = connexionBdd();
 	$req = $bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre ORDER BY id DESC ");
-	$req->execute(array('idChapitre' => $_GET["idChapitre"]));
+	$req->execute(array('idChapitre' => $idChapitre));
 	$maxCommentaires = 0;
     while ($donnees = $req->fetch()) { 
         $maxCommentaires++;
