@@ -52,6 +52,8 @@
              <h3>Les Commentaires signalés</h3>
             <?php
             while ($donnees = $commentaires->fetch()) {   
+              if ($donnees['signalement']) {
+                  
               
             ?>
                 <form>
@@ -64,13 +66,14 @@
                 </form>
             <?php 
             }
+            }
             ?>
             <?php $donneesChapitresChoisis = $chapitresChoisis->fetch() ?>
             <div class="pages">
                 <?php $i = 0 ; 
                 $limitMin = 0 ; ?>
 
-                <?php while($limitMin < $maxCommentaires){ 
+                <?php while($limitMin < $maxCommentairesSignaler){ 
                     ?>
                 <a href="../controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $i ; ?>-</a>
               <?php $limitMin +=3 ; ?>
@@ -87,8 +90,6 @@
 
             <?php $commentaires->closeCursor();  ?>
            
-        
-
     </div>
 <?php $contenuAdmin = ob_get_clean();  ?>
 <?php require 'gabaritAdmin.php'; ?>

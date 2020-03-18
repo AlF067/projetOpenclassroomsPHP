@@ -153,6 +153,22 @@ function maxCommentaires(){
 	return $maxCommentaires;
 }
 
+function maxCommentairesSignaler(){
+	if (isset($_POST["idChapitre"])) {
+		$idChapitre = $_POST["idChapitre"];
+	}else{
+		$idChapitre = $_GET["idChapitre"];
+	}
+	$bdd = connexionBdd();
+	$req = $bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre && signalement = true ORDER BY id DESC ");
+	$req->execute(array('idChapitre' => $idChapitre));
+	$maxCommentairesSignaler = 0;
+    while ($donnees = $req->fetch()) { 
+        $maxCommentairesSignaler++;
+    }
+	return $maxCommentairesSignaler;
+}
+
 function supprimerCommentaire()
 {
 	$bdd = connexionBdd();
@@ -160,6 +176,15 @@ function supprimerCommentaire()
 	$supprimerCommentaire->execute(array('id' => $_POST["id"]));
 
 	return $supprimerCommentaire;
+}
+
+function signaler()
+{
+	$bdd = connexionBdd();
+	$signaler = $bdd->prepare("UPDATE `commentaires` SET `signalement`= true,`dateSignalement`= NOW() WHERE `id`= :id");
+	$signaler->execute(array('id' => $_POST["id"]));
+	
+	return $signaler;
 }
 
 

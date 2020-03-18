@@ -34,11 +34,13 @@
             while ($donnees = $commentaires->fetch()) {   
               
             ?>
-                <form>
+                <form method="POST" action="../controleur/chapitresChoisis.php">
                     
                     <h4><?php echo $donnees['pseudo'];  ?> : <span>le <?php echo $donnees['dateHeure'];  ?></span></h4>
                     <p><?php echo $donnees['commentaire'];  ?></p>
-                    <div><a href="#">Signaler</a></div>
+                    <input type="submit" name="signaler" value="signaler">
+                    <input type="hidden" name="idChapitre" value="<?php echo $donneesChapitresChoisis['idChapitre']; ?>">
+                    <input type="hidden" name="id" value="<?php echo $donnees['id']; ?>">
                    
                 </form>
             <?php 
