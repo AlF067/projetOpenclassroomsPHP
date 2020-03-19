@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le :  mar. 17 mars 2020 à 10:17
+-- Généré le :  jeu. 19 mars 2020 à 09:10
 -- Version du serveur :  8.0.18
 -- Version de PHP :  7.3.12
 
@@ -66,44 +66,45 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `pseudo` varchar(255) NOT NULL,
   `commentaire` text NOT NULL,
   `dateHeure` datetime NOT NULL,
+  `signalement` tinyint(1) NOT NULL,
+  `dateSignalement` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `commentaires`
 --
 
-INSERT INTO `commentaires` (`id`, `idChapitre`, `pseudo`, `commentaire`, `dateHeure`) VALUES
-(1, 8, 'AlF', 'ca c\'est mon commentaire !', '2020-03-13 09:24:12'),
-(2, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon commentaire ca c\'est mon commentaire !', '2020-03-13 00:00:00'),
-(3, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon commentaire ca c\'est mon commentaire !', '2020-03-13 00:00:00'),
-(4, 8, 'AlF', 'ca c\'est mon commentaire !', '2020-03-13 09:24:12'),
-(5, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon commentaire ca c\'est mon commentaire !', '2020-03-13 00:00:00'),
-(6, 8, 'AlF', 'ca c\'est mon commentaire !', '2020-03-13 09:24:12'),
-(7, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon comm entaire ca c\'est mon commentaire !', '2020-03-13 00:00:00'),
-(8, 7, 'moi', 'chapitre 7  4', '2020-03-13 10:04:01'),
-(10, 7, 'moi', 'chapitre 7  3', '0000-00-00 00:00:00'),
-(11, 7, 'Mon pseu', 'chapitre 7  2', '0000-00-00 00:00:00'),
-(12, 7, 'aze', 'chapitre 7  1', '0000-00-00 00:00:00'),
-(13, 7, 'atrefg', 'chapitre 7  5', '2020-03-13 10:29:37'),
-(14, 7, 'azerty', 'chapitre 7  6', '2020-03-13 10:54:22'),
-(15, 6, 'rett', 'retest', '2020-03-13 10:55:09'),
-(16, 6, 'idtest', 'testID', '2020-03-13 11:01:06'),
-(17, 5, 'idtest', 'testID', '2020-03-13 11:02:32'),
-(18, 5, 'sdf', 'fds', '2020-03-13 11:04:43'),
-(19, 7, 'vicro', 'chapitre 7  7', '2020-03-13 11:07:14'),
-(20, 4, 'AlF', 'dernier test\r\n', '2020-03-13 11:07:57'),
-(21, 3, 'AlF', 'encore 1 test', '2020-03-13 11:08:56'),
-(22, 2, 'qsd', 'one more test', '2020-03-13 11:11:25'),
-(23, 2, 'AlF', 'et un test de plus', '2020-03-13 11:13:13'),
-(24, 0, 'AlF', 'fdsfd', '2020-03-13 13:51:41'),
-(25, 0, 'moi', 'test du chapitre 6', '2020-03-13 14:01:13'),
-(26, 6, 'moi', 'test du chapitre 6', '2020-03-13 14:03:42'),
-(27, 8, 'moiE', 'test du chapitre 8', '2020-03-13 14:04:06'),
-(28, 8, 'moiE', 'test du chapitre 8', '2020-03-13 14:05:45'),
-(29, 2, 'chap', 'chapitre 2', '2020-03-13 14:08:44'),
-(30, 5, 'test', 'test chapitre 5', '2020-03-13 14:32:59'),
-(31, 5, 'AlF', 'retest du chapitre 5', '2020-03-13 14:35:01');
+INSERT INTO `commentaires` (`id`, `idChapitre`, `pseudo`, `commentaire`, `dateHeure`, `signalement`, `dateSignalement`) VALUES
+(1, 8, 'AlF', 'ca c\'est mon commentaire !', '2020-03-13 09:24:12', 1, '2020-03-19 10:03:09'),
+(2, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon commentaire ca c\'est mon commentaire !', '2020-03-13 00:00:00', 0, '2020-03-19 10:04:11'),
+(3, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon commentaire ca c\'est mon commentaire !', '2020-03-13 00:00:00', 0, '0000-00-00 00:00:00'),
+(5, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon commentaire ca c\'est mon commentaire !', '2020-03-13 00:00:00', 0, '0000-00-00 00:00:00'),
+(7, 8, 'AlFi', 'ca c\'est mon commentaire ca c\'est mon comm entaire ca c\'est mon commentaire !', '2020-03-13 00:00:00', 0, '0000-00-00 00:00:00'),
+(8, 7, 'moi', 'chapitre 7  4', '2020-03-13 10:04:01', 0, '0000-00-00 00:00:00'),
+(10, 7, 'moi', 'chapitre 7  3', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(11, 7, 'Mon pseu', 'chapitre 7  2', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(12, 7, 'aze', 'chapitre 7  1', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(13, 7, 'atrefg', 'chapitre 7  5', '2020-03-13 10:29:37', 0, '0000-00-00 00:00:00'),
+(14, 7, 'azerty', 'chapitre 7  6', '2020-03-13 10:54:22', 1, '2020-03-19 10:08:35'),
+(15, 6, 'rett', 'retest', '2020-03-13 10:55:09', 0, '0000-00-00 00:00:00'),
+(16, 6, 'idtest', 'testID', '2020-03-13 11:01:06', 0, '0000-00-00 00:00:00'),
+(17, 5, 'idtest', 'testID', '2020-03-13 11:02:32', 0, '0000-00-00 00:00:00'),
+(18, 5, 'sdf', 'fds', '2020-03-13 11:04:43', 0, '0000-00-00 00:00:00'),
+(19, 7, 'vicro', 'chapitre 7  7', '2020-03-13 11:07:14', 1, '2020-03-19 10:08:32'),
+(20, 4, 'AlF', 'dernier test\r\n', '2020-03-13 11:07:57', 0, '0000-00-00 00:00:00'),
+(21, 3, 'AlF', 'encore 1 test', '2020-03-13 11:08:56', 0, '0000-00-00 00:00:00'),
+(22, 2, 'qsd', 'one more test', '2020-03-13 11:11:25', 0, '0000-00-00 00:00:00'),
+(23, 2, 'AlF', 'et un test de plus', '2020-03-13 11:13:13', 0, '0000-00-00 00:00:00'),
+(24, 0, 'AlF', 'fdsfd', '2020-03-13 13:51:41', 0, '0000-00-00 00:00:00'),
+(25, 0, 'moi', 'test du chapitre 6', '2020-03-13 14:01:13', 0, '0000-00-00 00:00:00'),
+(26, 6, 'moi', 'test du chapitre 6', '2020-03-13 14:03:42', 0, '0000-00-00 00:00:00'),
+(28, 8, 'moiE', 'test du chapitre 8', '2020-03-13 14:05:45', 0, '2020-03-19 10:01:28'),
+(29, 2, 'chap', 'chapitre 2', '2020-03-13 14:08:44', 0, '0000-00-00 00:00:00'),
+(30, 5, 'test', 'test chapitre 5', '2020-03-13 14:32:59', 0, '0000-00-00 00:00:00'),
+(31, 5, 'AlF', 'retest du chapitre 5', '2020-03-13 14:35:01', 0, '0000-00-00 00:00:00'),
+(32, 7, 'azerr', 'test chapitre 7', '2020-03-18 12:03:42', 1, '2020-03-19 10:08:28'),
+(33, 1, 'AlF', 'un commentaire pour le chapitre 1', '2020-03-18 15:13:58', 0, '0000-00-00 00:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
