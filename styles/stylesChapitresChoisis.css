@@ -45,7 +45,7 @@ section{
 	border-radius: 2em 2em 3em 3em;
 }
 
-form{
+.commentairesAfficher{
 	height: 250px;
 	display: flex;
 	flex-direction: column;	
@@ -64,7 +64,7 @@ textarea{
 	width: 30%;	
 }
 
-#commentaires form, #commentairesSignaler form {
+.commentairesAfficher {
 	
 	height: 90%;
 	display: flex;

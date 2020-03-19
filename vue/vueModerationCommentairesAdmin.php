@@ -8,14 +8,14 @@
             while ($donnees = $commentaires->fetch()) {   
               
             ?>
-                <form>
+                <div class="commentairesAfficher">
                     
                     <h4><?php echo $donnees['pseudo'];  ?> : <span>le <?php echo $donnees['dateHeure'];  ?></span></h4>
                     <p><?php echo $donnees['commentaire'];  ?></p>
 
                     <div><a href="../controleur/confirmationSuppressionCommentaire.php?id=<?php echo $donnees['id'] ?>&idChapitre=<?php echo $donnees['idChapitre'] ?> ">Supprimer</a></div>
                    
-                </form>
+                </div>
             <?php 
             }
             ?>
@@ -56,14 +56,21 @@
                   
               
             ?>
-                <form>
+                <div class="commentairesAfficher">
                     
                     <h4><?php echo $donnees['pseudo'];  ?> : <span>le <?php echo $donnees['dateHeure'];  ?></span></h4>
                     <p><?php echo $donnees['commentaire'];  ?></p>
 
-                    <div><a href="../controleur/confirmationSuppressionCommentaire.php?id=<?php echo $donnees['id'] ?>&idChapitre=<?php echo $donnees['idChapitre'] ?> ">Supprimer</a></div>
+                    <form method="POST" action="../controleur/moderationCommentairesAdmin.php">
+                        <input type="submit" name="oui" value="Supprimer commentaire">
+                        <input type="submit" name="supprimerSignalement" value="Supprimer signalement">
+                        <input type="hidden" name="id" value="<?php echo $donnees['id'] ?>">
+                        <input type="hidden" name="idChapitre" value="<?php echo $donnees['idChapitre'] ?>">
+                        
+
+                    </form>
                    
-                </form>
+                </div>
             <?php 
             }
             }

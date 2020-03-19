@@ -187,5 +187,14 @@ function signaler()
 	return $signaler;
 }
 
+function supprimerSignalement()
+{
+	$bdd = connexionBdd();
+	$supprimerSignalement = $bdd->prepare("UPDATE `commentaires` SET `signalement`= false,`dateSignalement`= NOW() WHERE `id`= :id");
+	$supprimerSignalement->execute(array('id' => $_POST["id"]));
+	
+	return $supprimerSignalement;
+}
+
 
 

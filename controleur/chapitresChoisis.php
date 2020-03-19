@@ -2,6 +2,7 @@
     require "../modele/modele.php";
     
     $maxCommentaires = maxCommentaires();
+    
       if (isset($_POST["signaler"])) {
         $signaler = signaler();
     }
