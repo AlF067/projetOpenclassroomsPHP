@@ -1,7 +1,6 @@
 <?php 
     require "../modele/modele.php";
-    $maxChapitres = maxChapitres();
-   	$chapitres = chapitres();
+    
     
     
     

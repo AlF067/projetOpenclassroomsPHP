@@ -6,22 +6,7 @@
             <div id="desc">
                 <div id="billets">
                      <?php 
-                        while ($donnees = $chapitresAccueil->fetch())
-                        {
-                        ?>
-                            <div class="blocBillet">
-                                <div class="billet">
-                                    <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
-                                    <p><?php echo $donnees['histoire'] ?></p>
-                                </div>
-                                <div class="lireChapitre">
-                                    <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $donnees['id'] ?>">Lire le chapitre</a>
-                                </div>
-                            </div>
-
-                        <?php 
-                        }
-                        $chapitresAccueil->closeCursor();
+                       $bdd->chapitresAccueil();
                     ?> 
                 </div>
 
