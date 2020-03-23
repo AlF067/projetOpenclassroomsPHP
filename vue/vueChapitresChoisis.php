@@ -23,4 +23,5 @@
 
     </div>
 <?php $contenu = ob_get_clean();  ?>
+<?php $title = "Chapitre" .  ; ?>
 <?php require 'gabarit.php'; ?>
