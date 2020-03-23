@@ -3,16 +3,7 @@
 <?php ob_start();  ?>
     <div id="lecture">
         <?php
-        $donneesChapitresChoisis = $chapitresChoisis->fetch();
-        $title = $donneesChapitresChoisis['titre'];
-
-        ?>
-        <h2><?php echo $donneesChapitresChoisis['titre'] . " " . " ajouté le " . $donneesChapitresChoisis['dateAjout'] ?></h2>
-        <p><?php echo $donneesChapitresChoisis['histoire'] ?></p>
-
-        <?php
-
-        $chapitresChoisis->closeCursor();
+        $chapitres->chapitresChoisis();
         ?>
 
         <div><a href="../controleur/chapitres.php">Retour au choix des chapitres</a></div>
@@ -28,40 +19,7 @@
 
             </form>
         </div>
-        <div id="commentaires">
-            <h3>Les Commentaires</h3>
-            <?php
-            while ($donnees = $commentaires->fetch()) {   
-              
-            ?>
-                <form method="POST" action="../controleur/chapitresChoisis.php">
-                    
-                    <h4><?php echo $donnees['pseudo'];  ?> : <span>le <?php echo $donnees['dateHeure'];  ?></span></h4>
-                    <p><?php echo $donnees['commentaire'];  ?></p>
-                    <input type="submit" name="signaler" value="signaler">
-                    <input type="hidden" name="idChapitre" value="<?php echo $donneesChapitresChoisis['idChapitre']; ?>">
-                    <input type="hidden" name="id" value="<?php echo $donnees['id']; ?>">
-                   
-                </form>
-            <?php 
-            }
-            ?>
-            <div id="pages">
-                <?php $i = 0 ; 
-                $limitMin = 0 ; ?>
-
-                <?php while($limitMin < $maxCommentaires){ ?>
-                <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $i ; ?>-</a>
-              <?php $limitMin +=3 ; ?>
-              <?php $i++ ; ?>
-              
-            <?php } ?>
-
-            </div>
-
-            <?php $commentaires->closeCursor();  ?>
-           
-        </div>
+        
 
     </div>
 <?php $contenu = ob_get_clean();  ?>

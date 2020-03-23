@@ -1,5 +1,12 @@
-<?php 
-    require "../modele/modele.php";
+<?php
+require "../modele/BaseDeDonnees.php";
+require "../modele/Chapitres.php";
+
+require "../vue/vueChapitresChoisis.php";
+
+
+/*
+require "../modele/modele.php";
     
     $maxCommentaires = maxCommentaires();
     
@@ -18,4 +25,5 @@
     $commentaires = commentaires();
 
     require "../vue/vueChapitresChoisis.php";
-?>
+
+*/

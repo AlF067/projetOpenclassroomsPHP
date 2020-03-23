@@ -6,7 +6,7 @@
             <div id="desc">
                 <div id="billets">
                      <?php 
-                       $bdd->chapitresAccueil();
+                       $chapitres->chapitresAccueil();
                     ?> 
                 </div>
 
