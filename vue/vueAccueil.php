@@ -6,7 +6,20 @@
             <div id="desc">
                 <div id="billets">
                      <?php 
-                       $chapitres->chapitresAccueil();
+                       foreach ($manager->listChaptres(0,3) as $obj) {
+                        ?>
+                                    <div class="blocBillet">
+                                        <div class="billet">
+                                            <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout() ?></h2>
+                                            <p><?php echo $obj->histoire() ?></p>
+                                        </div>
+                                        <div class="lireChapitre">
+                                            <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
+                                        </div>
+                                    </div>
+                        
+                                <?php
+                                }
                     ?> 
                 </div>
 

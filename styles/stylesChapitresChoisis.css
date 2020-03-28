@@ -45,7 +45,7 @@ section{
 	border-radius: 2em 2em 3em 3em;
 }
 
-.commentairesAfficher{
+form{
 	height: 250px;
 	display: flex;
 	flex-direction: column;	

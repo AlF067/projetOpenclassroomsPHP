@@ -1,6 +1,8 @@
 <?php
 require "../modele/BaseDeDonnees.php";
 require "../modele/Chapitres.php";
+require "../modele/Commentaires.php";
+
 
 require "../vue/vueChapitresChoisis.php";
 
