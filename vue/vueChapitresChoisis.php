@@ -12,10 +12,10 @@
 </div>
 
 
-<?php /* ?>
+
 <div id="rubriqueCommentaires">
     <div>
-        <form method="POST" action="../controleur/chapitresChoisis.php?id=8">
+        <form method="POST" action="../controleur/chapitresChoisis.php?id=<?php echo $chapitreChoisis['idChapitre'] ?>">
             <h3>Laisser un commentaire</h3>
             <input type="text" name="pseudo" placeholder="Votre pseudo">
             <textarea name="commentaire" placeholder="Votre commentaire"></textarea>
@@ -24,13 +24,26 @@
 
         </form>
     </div>
+
+    
     <div id="commentaires">
+    
         <h3>Les Commentaires</h3>
+    <?php
+        foreach ($manager->commentairesAll($_GET["idChapitre"], 0) as $obj) 
+        {
+    ?>
+        <div>
+            <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure(). "</span>" ?></h4>
+            <p><?php echo $obj->commentaire() ?></p>
+        </div> 
+
         <?php
-        $commentaires->commentairesAll(); #
-          
+        }
         ?>
+        </div>
         
+<?php /* ?>    
         <div id="pages">
             <?php $i = 0;
             $limitMin = 0; ?>
@@ -47,10 +60,11 @@
         <?php $commentaires->closeCursor();  ?>
 
     </div>
-
-</div>
-
 <?php */ ?>
+
+
+
+
 
 
 <?php $contenu = ob_get_clean();  ?>
