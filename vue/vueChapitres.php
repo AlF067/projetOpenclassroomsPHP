@@ -5,7 +5,7 @@
 
 <?php
 
-foreach($manager->listChaptres($limitMin,5) as $obj) {
+foreach ($manager->listChaptres($limitMin, 5) as $obj) {
 
 ?>
 
@@ -30,14 +30,13 @@ foreach($manager->listChaptres($limitMin,5) as $obj) {
     echo "<div id='nombreDePages'>Page : </div>";
     while ($limitMin < $manager->maxChaptres()) {
     ?>
-
         <?php
-        if ($pages == 0) {
-        } else {
+        if (!$pages == 0) {
             echo "<div class='slash'>/</div>";
-        } ?>
+        } 
+        ?>
         <div id="numerosPage">
-            <a href="../controleur/chapitres.php?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages +1; ?></a>
+            <a href="../controleur/chapitres.php?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
         </div>
 

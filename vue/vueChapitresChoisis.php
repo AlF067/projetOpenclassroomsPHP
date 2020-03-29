@@ -3,15 +3,19 @@
 <?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
 <div id="lecture">
-    <?php
-    $chapitres->chapitresChoisis();
-    ?>
+
+    <h2><?php echo $chapitreChoisis['titre'] . " " . " ajouté le " . $chapitreChoisis['dateAjout'] ?></h2>
+    <p><?php echo $chapitreChoisis['histoire'] ?></p>
+    <?php ?>
 
     <div><a href="../controleur/chapitres.php">Retour au choix des chapitres</a></div>
 </div>
+
+
+<?php /* ?>
 <div id="rubriqueCommentaires">
     <div>
-        <form  method="POST" action="../controleur/chapitresChoisis.php?id=8">
+        <form method="POST" action="../controleur/chapitresChoisis.php?id=8">
             <h3>Laisser un commentaire</h3>
             <input type="text" name="pseudo" placeholder="Votre pseudo">
             <textarea name="commentaire" placeholder="Votre commentaire"></textarea>
@@ -23,8 +27,8 @@
     <div id="commentaires">
         <h3>Les Commentaires</h3>
         <?php
-        $commentaires->commentairesAll();#
-   /*    
+        $commentaires->commentairesAll(); #
+          
         ?>
         
         <div id="pages">
@@ -41,12 +45,14 @@
         </div>
  
         <?php $commentaires->closeCursor();  ?>
- <?php
-   */    
-  ?>
+
     </div>
 
 </div>
+
+<?php */ ?>
+
+
 <?php $contenu = ob_get_clean();  ?>
 
 <?php require 'gabarit.php'; ?>

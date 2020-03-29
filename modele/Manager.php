@@ -22,11 +22,6 @@ class Manager
     }
   }
 
- 
-
-  public function allChaptre(Chapters $objet)
-  {
-  }
 
   public function addChaptre(Chapters $objet)
   {
