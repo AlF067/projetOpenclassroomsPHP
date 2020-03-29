@@ -12,7 +12,7 @@
                 <label for="titre">Titre : </label><input type="text" name="titre" id="titre">
             </div>
             <div>
-                <label for="id">Numéros du chapitre : </label><input type="text" name="id" id="id" required>
+                <label for="idChapitre">Numéros du chapitre : </label><input type="text" name="idChapitre" id="id" required>
             </div>
         </div>
         <div id="caseHistoire">

@@ -7,55 +7,52 @@
     <p><a href="../controleur/ajoutAdmin.php"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
 </section>
 <section>
-    <?php                      
-        while ($donnees = $chapitres->fetch())
-            {
-    ?>
-                <div class="blocChapitre">
-                    <div class="chapitre">
-                        <h2><?php echo $donnees['titre']. " " . " ajouté le " . $donnees['dateAjout']?></h2>
-                        <p><?php echo $donnees['histoire'] ?></p>
-                    </div>
-                    <div class="lireChapitre">
-                        <a href="controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $donnees['idChapitre'] ?>">Commentaires</a>
-                        <a href="../vue/vueConfirmationSuppressionAdmin.php?idChapitre=<?php echo $donnees['idChapitre'] ?>">Supprimer</a>
-                        <a href="../controleur/modificationAdmin.php?idChapitre=<?php echo $donnees['idChapitre'] ?>">Modifer</a>     
-                    </div>
+    <?php    
+    foreach ($manager->listChaptres($limitMin, 5) as $obj) {
+
+        ?>
+        
+            <div class="blocChapitre">
+                <div class="chapitre">
+                    <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout() ?></h2>
+                    <p><?php echo $obj->histoire() ?></p>
                 </div>
-    <?php 
-            }
+                <div class="lireChapitre">
+                        <a href="controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Commentaires</a>
+                        <a href="../vue/vueConfirmationSuppressionAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Supprimer</a>
+                        <a href="../controleur/modificationAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Modifer</a>     
+                    </div>
+            </div>
+        <?php
+        
+        }                  
+   
     ?>
-                <div id="paginationChapitres">
-                            <?php 
-                            $pages = 0;
-                            $limitMin = 0;
-                            $commentairesParPage = 0; 
-                            echo "<div id='nombreDePages'>Pages : </div>" ;
-                            while ( $limitMin < $maxChapitres) { 
-                                ?>
-                                
-                                    <?php 
-                                     if ($pages == 0) {
-                                            
-                                        }else{
-                                            echo "<div class='slash'>/</div>";
-                                        } ?>
-                                    <div id="numerosPage">
-                                         <a href="../admin.php?page=<?php echo $pages ?>"><?php echo $pages ; ?></a>
-                                        
-                                    </div>
-                              
-                            <?php
-                            $commentairesParPage +=5;
-                            $limitMin +=5;
-                            $pages++ ;
-                            }
-                            ?>
+<div id="paginationChapitres">
+    <?php
+    $pages = 0;
+    $limitMin = 0;
+    $commentairesParPage = 0;
+    echo "<div id='nombreDePages'>Page : </div>";
+    while ($limitMin < $manager->maxChaptres()) {
+    ?>
+        <?php
+        if (!$pages == 0) {
+            echo "<div class='slash'>/</div>";
+        } 
+        ?>
+        <div id="numerosPage">
+            <a href="../admin.php?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
-<?php
-    $chapitres->closeCursor();
-
-    ?> 
+        </div>
+        
+    <?php
+        $commentairesParPage += 5;
+        $limitMin += 5;
+        $pages++;
+    }
+    ?>
+</div>
 </section>
 
 <?php $contenuAdmin = ob_get_clean();  ?>

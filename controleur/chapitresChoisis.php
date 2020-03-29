@@ -4,6 +4,8 @@ require "../modele/Commentaires.php";
 require "../modele/Manager.php";
 $manager = new Manager;
 $chapitreChoisis = $manager->chaptre($_GET["idChapitre"]);
+
+
 if (isset($_GET['limitMin'])) {
  $limitMin = $_GET['limitMin'];
 }else {
