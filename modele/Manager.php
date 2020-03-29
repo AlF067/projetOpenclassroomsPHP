@@ -92,7 +92,7 @@ class Manager
 			}
 */
 			
-			$commentaires = $this->_bdd->prepare('SELECT * FROM chapitres INNER JOIN commentaires  ON commentaires.idChapitre = chapitres.idChapitre WHERE commentaires.idChapitre = :idChapitre ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 5 ');
+			$commentaires = $this->_bdd->prepare('SELECT * FROM chapitres INNER JOIN commentaires  ON commentaires.idChapitre = chapitres.idChapitre WHERE commentaires.idChapitre = :idChapitre ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
 			$commentaires->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
 			$commentaires->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
 
@@ -104,16 +104,14 @@ class Manager
 			return $commentaire;
 		}
 
-		public function ajoutCommentaires()
+		public function ajoutCommentaires($idChapitre, $pseudo, $commentaire)
 		{
 			
 			$ajoutCommentaires = $this->_bdd->prepare("INSERT INTO `commentaires`(`idChapitre`, `pseudo`, `commentaire`, `dateHeure`) VALUES (:idChapitre, :pseudo, :commentaire, NOW())");
-			$ajoutCommentaires->execute(array(
-				'idChapitre' => $_POST["idChapitre"],
-				'pseudo' => $_POST["pseudo"],
-				'commentaire' => $_POST["commentaire"]
-
-			));
+      $ajoutCommentaires->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
+      $ajoutCommentaires->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+      $ajoutCommentaires->bindValue(':commentaire', $commentaire, PDO::PARAM_STR);
+      $ajoutCommentaires->execute() or die(print_r($ajoutCommentaires->errorInfo(), TRUE));
 			return $ajoutCommentaires;
 		}
 

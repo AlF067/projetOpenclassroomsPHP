@@ -4,7 +4,14 @@ require "../modele/Commentaires.php";
 require "../modele/Manager.php";
 $manager = new Manager;
 $chapitreChoisis = $manager->chaptre($_GET["idChapitre"]);
-
+if (isset($_GET['limitMin'])) {
+ $limitMin = $_GET['limitMin'];
+}else {
+  $limitMin = 0;
+}
+if (isset($_POST["idChapitre"]) && $_POST["pseudo"] && $_POST["commentaire"] ) {
+  $manager->ajoutCommentaires(($_POST["idChapitre"]), ($_POST["pseudo"]), ($_POST["commentaire"]));
+}
 
 
 require "../vue/vueChapitresChoisis.php";

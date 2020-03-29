@@ -60,13 +60,22 @@ textarea{
 #commentaires, #commentairesSignaler{
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	align-items: flex-start;	
 	width: 30%;	
+	
+	
 }
+
+#commentaires h3, #pages{
+	align-self: center;
+}
+
+
 
 .commentairesAfficher {
 	
-	height: 90%;
+	height: 60px;
+	width: 75%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -75,6 +84,7 @@ textarea{
 	border-top: none;
 	border-radius: 0.5em;
 	padding: 0.5em;
+	margin: 0.5em 0 0.5em 0;
 
 }
 
@@ -83,8 +93,6 @@ textarea{
 	margin: 0;
 	text-decoration: underline;
 }
-
-
 
 h4 span{
 	font-weight: normal;
@@ -107,5 +115,16 @@ h4 span{
 	justify-content: space-around;	
 }
 
+.slash{
+	margin: 0 0.2em;
+}
+
+#commentaires + div{
+	border: 1px gray solid;
+	border-bottom: none;
+	border-top: none;
+	border-radius: 0.5em;
+	padding: 0.5em;
+}
 
 
