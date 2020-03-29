@@ -22,31 +22,31 @@ class Manager
     }
   }
 
-                          /* PARIE CHAPITRES */
+  /* PARIE CHAPITRES */
 
   /* AJOUTER UN CHAPITRE */
 
-  public function addChaptre($idChapitre,$titre, $histoire)
+  public function addChaptre($idChapitre, $titre, $histoire)
   {
     $ajouterChapitre = $this->_bdd->prepare("INSERT INTO `chapitres`(`idChapitre`,`titre`, `histoire`, `dateAjout`) VALUES (:idChapitre, :titre, :histoire, CURDATE())");
     $ajouterChapitre->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
     $ajouterChapitre->bindValue(':titre', $titre, PDO::PARAM_STR);
     $ajouterChapitre->bindValue(':histoire', $histoire, PDO::PARAM_STR);
     $ajouterChapitre->execute() or die(print_r($ajouterChapitre->errorInfo(), TRUE));
-    
+
     return $ajouterChapitre;
   }
 
   /* MODIFIER UN CHAPITRE */
 
-  public function updateChaptre($idChapitre,$titre, $histoire)
+  public function updateChaptre($idChapitre, $titre, $histoire)
   {
     $modifierChapitre = $this->_bdd->prepare("UPDATE `chapitres` SET `titre`= :titre,`histoire`= :histoire WHERE `idChapitre`= :idChapitre");
     $modifierChapitre->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
     $modifierChapitre->bindValue(':titre', $titre, PDO::PARAM_STR);
     $modifierChapitre->bindValue(':histoire', $histoire, PDO::PARAM_STR);
     $modifierChapitre->execute() or die(print_r($modifierChapitre->errorInfo(), TRUE));
-  
+
     return $modifierChapitre;
   }
 
@@ -103,7 +103,7 @@ class Manager
     return $maxChapters;
   }
 
-                                /* PARIE COMMENTAIRES */
+  /* PARIE COMMENTAIRES */
 
   public function commentairesAll($idChapitre, $limitMin)
   {
@@ -129,6 +129,15 @@ class Manager
     $ajoutCommentaires->bindValue(':commentaire', $commentaire, PDO::PARAM_STR);
     $ajoutCommentaires->execute() or die(print_r($ajoutCommentaires->errorInfo(), TRUE));
     return $ajoutCommentaires;
+  }
+
+  public function supprimerCommentaire()
+  {
+
+    $supprimerCommentaire = $this->_bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
+    $supprimerCommentaire->execute(array('id' => $_POST["id"]));
+
+    return $supprimerCommentaire;
   }
 
   public function maxCommentaires()
@@ -165,14 +174,7 @@ class Manager
 			return $maxCommentairesSignaler;
 		}
 
-		public function supprimerCommentaire()
-		{
-			
-			$supprimerCommentaire = $this->_bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
-			$supprimerCommentaire->execute(array('id' => $_POST["id"]));
-
-			return $supprimerCommentaire;
-		}
+		
 
 		public function signaler()
 		{

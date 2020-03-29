@@ -2,44 +2,48 @@
 <?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
     <div id="moderationCommentaires">
-        <div id="commentaires">
-            <h3>Les Commentaires</h3>
-            <?php
-            while ($donnees = $commentaires->fetch()) {   
-              
-            ?>
-                <div class="commentairesAfficher">
-                    
-                    <h4><?php echo $donnees['pseudo'];  ?> : <span>le <?php echo $donnees['dateHeure'];  ?></span></h4>
-                    <p><?php echo $donnees['commentaire'];  ?></p>
+    <div id="commentaires">
+        
+        <h3>Les Commentaires</h3>
+        <?php
+        foreach ($manager->commentairesAll($idChapitre, $limitMin) as $obj) {
+        ?>
+            <div class="commentairesAfficher">
+                <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
+                <p><?php echo $obj->commentaire() ?></p>
+                <div><a href="../controleur/confirmationSuppressionCommentaire.php?id=<?php echo $obj->id() ?>&idChapitre=<?php echo $obj->idChapitre() ?> ">Supprimer</a></div>
+            </div>
 
-                    <div><a href="../controleur/confirmationSuppressionCommentaire.php?id=<?php echo $donnees['id'] ?>&idChapitre=<?php echo $donnees['idChapitre'] ?> ">Supprimer</a></div>
-                   
-                </div>
-            <?php 
+        <?php
+        }
+        ?>
+    
+
+    <?php  ?>
+    <div  id="pages">
+        <?php $pages = 0;
+        $limitMin = 0;
+        echo "<div id='nombreDePages'>Page : </div>"; ?>
+        <?php while ($limitMin < $manager->maxCommentaires()) { ?>
+            <?php
+            if (!$pages == 0) {
+                echo "<div class='slash'>/</div>";
             }
             ?>
-            <?php $donneesChapitresChoisis = $chapitresChoisis->fetch() ?>
-            <div class="pages">
-                <?php $i = 0 ; 
-                $limitMin = 0 ; ?>
+            <a href="../controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $pages + 1; ?></a>
+            <?php $limitMin += 3; ?>
+            <?php $pages++; ?>
 
-                <?php while($limitMin < $maxCommentaires){ 
-                    ?>
-                <a href="../controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $donneesChapitresChoisis['id'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $i ; ?>-</a>
-              <?php $limitMin +=3 ; ?>
-              <?php $i++ ; ?>
-              
-            <?php 
-            } 
-            ?>
-            </div>
-        </div>
-        <?php $commentaires->closeCursor();  ?>
-        <?php $chapitresChoisis->closeCursor();  ?>
+        <?php } ?>
+
+    </div>
+
+
+
+</div>
 
         <?php 
-
+/*
    if (isset($_POST["oui"])) {
         $supprimerCommentaire = supprimerCommentaire();
     }
@@ -91,11 +95,11 @@
             ?>
             </div>
         </div>
+<?php */  ?>
     </div>
 
         <p><a href="../admin.php">Retour</a></p>
 
-            <?php $commentaires->closeCursor();  ?>
            
     </div>
 <?php $contenuAdmin = ob_get_clean();  ?>
