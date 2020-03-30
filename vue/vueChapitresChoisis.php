@@ -35,8 +35,12 @@
                 <div class="commentairesAfficher">
                     <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
                     <p><?php echo $obj->commentaire() ?></p>
+                    <form action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>" method="POST">
+                        <button type="submit" name="signalement" value="<?php echo $obj->id() ?>">signaler</button>
+                    </form>
+                    
                 </div>
-
+                
             <?php
             }
             ?>
@@ -53,7 +57,7 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['id'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $pages + 1; ?></a>
+                <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $pages + 1; ?></a>
                 <?php $limitMin += 3; ?>
                 <?php $pages++; ?>
 

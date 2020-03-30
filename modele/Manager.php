@@ -135,7 +135,7 @@ class Manager
   {
 
     $supprimerCommentaire = $this->_bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
-    $supprimerCommentaire->execute(array('id' => $_POST["id"]));
+    $supprimerCommentaire->execute(array(':id' => $_POST["id"]));
 
     return $supprimerCommentaire;
   }
@@ -149,12 +149,20 @@ class Manager
     }
 
     $req = $this->_bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre ORDER BY id DESC ");
-    $req->execute(array('idChapitre' => $idChapitre));
+    $req->execute(array(':idChapitre' => $idChapitre));
     $maxCommentaires = 0;
     while ($donnees = $req->fetch()) {
       $maxCommentaires++;
     }
     return $maxCommentaires;
+  }
+
+  public function signaler($idCommentaire)
+  {
+    $signaler = $this->_bdd->prepare("UPDATE `commentaires` SET `signalement`= true,`dateSignalement`= NOW() WHERE `id`= :idCommentaire");
+    $signaler->execute(array(':idCommentaire' => $idCommentaire));
+
+    return $signaler;
   }
   /*
 		public function maxCommentairesSignaler()
@@ -176,14 +184,7 @@ class Manager
 
 		
 
-		public function signaler()
-		{
-			
-			$signaler = $this->_bdd->prepare("UPDATE `commentaires` SET `signalement`= true,`dateSignalement`= NOW() WHERE `id`= :id");
-			$signaler->execute(array('id' => $_POST["id"]));
 
-			return $signaler;
-		}
 
 		public function supprimerSignalement()
 		{

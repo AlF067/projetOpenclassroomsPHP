@@ -1,9 +1,10 @@
+<?php $titleAdmin = "Modération commentaires" ; ?>
 <?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesAdmin.css">' ?>
 <?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
-    <div id="moderationCommentaires">
+<div id="moderationCommentaires">
     <div id="commentaires">
-        
+
         <h3>Les Commentaires</h3>
         <?php
         foreach ($manager->commentairesAll($idChapitre, $limitMin) as $obj) {
@@ -17,33 +18,33 @@
         <?php
         }
         ?>
-    
 
-    <?php  ?>
-    <div  id="pages">
-        <?php $pages = 0;
-        $limitMin = 0;
-        echo "<div id='nombreDePages'>Page : </div>"; ?>
-        <?php while ($limitMin < $manager->maxCommentaires()) { ?>
-            <?php
-            if (!$pages == 0) {
-                echo "<div class='slash'>/</div>";
-            }
-            ?>
-            <a href="../controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $pages + 1; ?></a>
-            <?php $limitMin += 3; ?>
-            <?php $pages++; ?>
 
-        <?php } ?>
+        <?php  ?>
+        <div id="pages">
+            <?php $pages = 0;
+            $limitMin = 0;
+            echo "<div id='nombreDePages'>Page : </div>"; ?>
+            <?php while ($limitMin < $manager->maxCommentaires()) { ?>
+                <?php
+                if (!$pages == 0) {
+                    echo "<div class='slash'>/</div>";
+                }
+                ?>
+                <a href="../controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $pages + 1; ?></a>
+                <?php $limitMin += 3; ?>
+                <?php $pages++; ?>
+
+            <?php } ?>
+
+        </div>
+
+
 
     </div>
 
-
-
-</div>
-
-        <?php 
-/*
+    <?php
+    /*
    if (isset($_POST["oui"])) {
         $supprimerCommentaire = supprimerCommentaire();
     }
@@ -96,11 +97,11 @@
             </div>
         </div>
 <?php */  ?>
-    </div>
+</div>
 
-        <p><a href="../admin.php">Retour</a></p>
+<p><a href="../admin.php">Retour</a></p>
 
-           
-    </div>
+
+</div>
 <?php $contenuAdmin = ob_get_clean();  ?>
 <?php require 'gabaritAdmin.php'; ?>
