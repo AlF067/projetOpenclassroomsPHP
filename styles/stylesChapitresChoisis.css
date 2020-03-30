@@ -1,10 +1,14 @@
 				/* PARTIE LECTURE CHAPITRE*/
-
 section{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: rgb(220,220,220);
+}
+
+#sectionAdmin{
+	margin-top: 0.5em;;
+	align-items: stretch;
 }
 
 
@@ -45,7 +49,7 @@ section{
 	border-radius: 2em 2em 3em 3em;
 }
 
-form{
+#formulaireCommentaires{
 	height: 250px;
 	display: flex;
 	flex-direction: column;	
@@ -57,16 +61,17 @@ textarea{
 	height: 40%;
 }
 
-#commentaires, #commentairesSignaler{
+.commentaires{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;	
-	width: 30%;	
+	width: 40%;	
+
 	
 	
 }
 
-#commentaires h3, #pages{
+.commentaires h3, #pages{
 	align-self: center;
 }
 
@@ -74,8 +79,9 @@ textarea{
 
 .commentairesAfficher {
 	
-	height: 60px;
+	
 	width: 75%;
+	
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -88,7 +94,7 @@ textarea{
 
 }
 
-#commentaires h4{
+.commentaires h4{
 	
 	margin: 0;
 	text-decoration: underline;
@@ -98,15 +104,15 @@ h4 span{
 	font-weight: normal;
 }
 
-#commentaires p{
+.commentaires p{
 	margin: 0.5em 0.5em 0.5em 0;
 }
 
-#commentaires a{
+.commentaires a{
 	text-decoration: none;
 }
 
-#pages{
+.pages{
 	display: flex;
 }
 
@@ -119,12 +125,9 @@ h4 span{
 	margin: 0 0.2em;
 }
 
-#commentaires + div{
-	border: 1px gray solid;
-	border-bottom: none;
-	border-top: none;
-	border-radius: 0.5em;
-	padding: 0.5em;
+#retour{
+	margin-bottom: 0;;
 }
+
 
 

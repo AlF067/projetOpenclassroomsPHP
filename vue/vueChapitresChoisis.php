@@ -15,7 +15,7 @@
 
 <div id="rubriqueCommentaires">
     <div>
-        <form method="POST" action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
+        <form id="formulaireCommentaires" method="POST" action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
             <h3>Laisser un commentaire</h3>
             <input type="text" name="pseudo" placeholder="Votre pseudo">
             <textarea name="commentaire" placeholder="Votre commentaire"></textarea>
@@ -26,7 +26,7 @@
     </div>
 
 
-    <div id="commentaires">
+    <div class="commentaires">
         
             <h3>Les Commentaires</h3>
             <?php
@@ -47,11 +47,11 @@
         
 
         <?php  ?>
-        <div  id="pages">
+        <div  class="pages">
             <?php $pages = 0;
             $limitMin = 0;
             echo "<div id='nombreDePages'>Page : </div>"; ?>
-            <?php while ($limitMin < $manager->maxCommentaires()) { ?>
+            <?php while ($limitMin < $manager->maxCommentaires($_GET["idChapitre"])) { ?>
                 <?php
                 if (!$pages == 0) {
                     echo "<div class='slash'>/</div>";

@@ -108,7 +108,7 @@ class Manager
   public function commentairesAll($idChapitre, $limitMin)
   {
 
-    $commentaires = $this->_bdd->prepare('SELECT * FROM chapitres INNER JOIN commentaires  ON commentaires.idChapitre = chapitres.idChapitre WHERE commentaires.idChapitre = :idChapitre ORDER BY commentaires.dateHeure DESC LIMIT :limitMin , 3 ');
+    $commentaires = $this->_bdd->prepare('SELECT * FROM commentaires WHERE idChapitre = :idChapitre ORDER BY dateHeure DESC LIMIT :limitMin , 3 ');
     $commentaires->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
     $commentaires->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
 
@@ -131,7 +131,7 @@ class Manager
     return $ajoutCommentaires;
   }
 
-  public function supprimerCommentaire()
+  public function supprimerCommentaire($id)
   {
 
     $supprimerCommentaire = $this->_bdd->prepare("DELETE FROM `commentaires` WHERE `id`= :id");
@@ -140,14 +140,8 @@ class Manager
     return $supprimerCommentaire;
   }
 
-  public function maxCommentaires()
+  public function maxCommentaires($idChapitre)
   {
-    if (isset($_POST["idChapitre"])) {
-      $idChapitre = $_POST["idChapitre"];
-    } else {
-      $idChapitre = $_GET["idChapitre"];
-    }
-
     $req = $this->_bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre ORDER BY id DESC ");
     $req->execute(array(':idChapitre' => $idChapitre));
     $maxCommentaires = 0;
@@ -157,6 +151,22 @@ class Manager
     return $maxCommentaires;
   }
 
+  public function commentairesSignaler($idChapitre, $limitMinSignal)
+  {
+
+    $commentairesSignaler = $this->_bdd->prepare('SELECT * FROM commentaires WHERE idChapitre = :idChapitre && signalement = true ORDER BY dateSignalement DESC LIMIT :limitMinSignal , 3 ');
+    $commentairesSignaler->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
+    $commentairesSignaler->bindValue(':limitMinSignal', $limitMinSignal, PDO::PARAM_INT);
+
+    $commentairesSignaler->execute() or die(print_r($commentairesSignaler->errorInfo(), TRUE));
+    $commentaireSignaler = array();
+    while ($donnees = $commentairesSignaler->fetch()) {
+      $commentaireSignaler[] = new Commentaires($donnees);
+    }
+    
+    return $commentaireSignaler;
+  }
+
   public function signaler($idCommentaire)
   {
     $signaler = $this->_bdd->prepare("UPDATE `commentaires` SET `signalement`= true,`dateSignalement`= NOW() WHERE `id`= :idCommentaire");
@@ -164,15 +174,10 @@ class Manager
 
     return $signaler;
   }
-  /*
-		public function maxCommentairesSignaler()
+
+  public function maxCommentairesSignaler($idChapitre)
 		{
-			if (isset($_POST["idChapitre"])) {
-				$idChapitre = $_POST["idChapitre"];
-			} else {
-				$idChapitre = $_GET["idChapitre"];
-			}
-			
+		
 			$req = $this->_bdd->prepare("SELECT * FROM `commentaires` WHERE idChapitre = :idChapitre && signalement = true ORDER BY id DESC ");
 			$req->execute(array('idChapitre' => $idChapitre));
 			$maxCommentairesSignaler = 0;
@@ -180,20 +185,26 @@ class Manager
 				$maxCommentairesSignaler++;
 			}
 			return $maxCommentairesSignaler;
-		}
-
-		
-
-
-
-		public function supprimerSignalement()
+    }
+    
+    public function supprimerSignalement($idCommentaire)
 		{
 			
 			$supprimerSignalement = $this->_bdd->prepare("UPDATE `commentaires` SET `signalement`= false,`dateSignalement`= NOW() WHERE `id`= :id");
-			$supprimerSignalement->execute(array('id' => $_POST["id"]));
+			$supprimerSignalement->execute(array('id' => $idCommentaire));
 
 			return $supprimerSignalement;
     }
-    
-    */
+
+    public function iconeSignalement($idChapitre)
+		{
+      if ($this->maxCommentairesSignaler($idChapitre) >= 1) {
+        $iconeSignalement = "Signalement";
+       }else {
+        $iconeSignalement = "";
+       }
+
+			return $iconeSignalement;
+    }
+   
 }

@@ -5,6 +5,7 @@ require "modele/Manager.php";
 $manager = new Manager;
 
 
+
 /* Supprime un chapitre s'il y en a un a supprimer */
 if (isset($_POST["oui"])) {
     $manager->deleteChapitre($_POST["idChapitre"]);

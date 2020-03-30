@@ -9,12 +9,12 @@
 <section>
     <?php    
     foreach ($manager->listChaptres($limitMin, 5) as $obj) {
-
+        $iconeSignalement = $manager->iconeSignalement($obj->idChapitre());
         ?>
         
             <div class="blocChapitre">
                 <div class="chapitre">
-                    <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout() ?></h2>
+                    <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout(). "<span id='iconeSignalement'> " . $iconeSignalement . "</span> "?></h2>
                     <p><?php echo $obj->histoire() ?></p>
                 </div>
                 <div class="lireChapitre">
