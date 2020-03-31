@@ -19,7 +19,6 @@
             <h3>Laisser un commentaire</h3>
             <input type="text" name="pseudo" placeholder="Votre pseudo" maxlength="12" required>
             <textarea name="commentaire" placeholder="Votre commentaire" maxlength="150" required></textarea>
-            <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>">
             <input type="submit" name="envoi" id="envoi">
 
         </form>

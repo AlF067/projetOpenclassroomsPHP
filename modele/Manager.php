@@ -67,6 +67,7 @@ class Manager
     $chapitresChoisis->execute(array($idChapitre));
 
     $donneesChapitresChoisis = $chapitresChoisis->fetch();
+    
     return $donneesChapitresChoisis;
   }
 
