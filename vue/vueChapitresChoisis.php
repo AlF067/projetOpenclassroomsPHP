@@ -17,8 +17,8 @@
     <div>
         <form id="formulaireCommentaires" method="POST" action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
             <h3>Laisser un commentaire</h3>
-            <input type="text" name="pseudo" placeholder="Votre pseudo">
-            <textarea name="commentaire" placeholder="Votre commentaire"></textarea>
+            <input type="text" name="pseudo" placeholder="Votre pseudo" maxlength="12" required>
+            <textarea name="commentaire" placeholder="Votre commentaire" maxlength="150" required></textarea>
             <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>">
             <input type="submit" name="envoi" id="envoi">
 
@@ -27,7 +27,7 @@
 
 
     <div class="commentaires">
-        
+        <div class="blocCommentaires">
             <h3>Les Commentaires</h3>
             <?php
             foreach ($manager->commentairesAll($_GET["idChapitre"], $limitMin) as $obj) {
@@ -38,16 +38,16 @@
                     <form action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>" method="POST">
                         <button type="submit" name="signalement" value="<?php echo $obj->id() ?>">signaler</button>
                     </form>
-                    
+
                 </div>
-                
+
             <?php
             }
             ?>
-        
+        </div>
 
         <?php  ?>
-        <div  class="pages">
+        <div class="pages">
             <?php $pages = 0;
             $limitMin = 0;
             echo "<div id='nombreDePages'>Page : </div>"; ?>
@@ -57,14 +57,15 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>&limitMin=<?php echo $limitMin ?>"><?php echo $pages + 1; ?></a>
-                <?php $limitMin += 3; ?>
+                <form method="POST" action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
+                    <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
+                    <input type="hidden" name="limitMin" value="<?php echo $limitMin ?>">
+                </form> <?php $limitMin += 3; ?>
                 <?php $pages++; ?>
 
             <?php } ?>
 
         </div>
-
 
 
     </div>

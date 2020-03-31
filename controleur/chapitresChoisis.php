@@ -11,8 +11,8 @@ if (isset($_POST["signalement"])) {
   $manager->signaler($_POST["signalement"]);
 }
 /* Pour la pagination des commentaires */
-if (isset($_GET['limitMin'])) {
- $limitMin = $_GET['limitMin'];
+if (isset($_POST['limitMin'])) {
+ $limitMin = $_POST['limitMin'];
 }else {
   $limitMin = 0;
 }
