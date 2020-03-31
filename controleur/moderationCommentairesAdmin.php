@@ -28,15 +28,15 @@
     
 
     /* Affiche 3 commentaires maximum par page  */
-    if (isset($_GET['limitMin'])) {
-     $limitMin = $_GET['limitMin'];
+    if (isset($_POST['limitMin'])) {
+     $limitMin = $_POST['limitMin'];
     }else {
       $limitMin = 0;
     }
 
     /* Affiche 3 commentaires signalés maximum par page  */
-    if (isset($_GET['limitMinSignal'])) {
-        $limitMinSignal = $_GET['limitMinSignal'];
+    if (isset($_POST['limitMinSignal'])) {
+        $limitMinSignal = $_POST['limitMinSignal'];
        }else {
          $limitMinSignal = 0;
        }
