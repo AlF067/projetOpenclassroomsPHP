@@ -69,3 +69,12 @@ section{
 #iconeSignalement{
 	color: red;
 }
+
+#chapitreDejaExistant{
+	width: 50%;
+	background-color: crimson;
+	margin: 1em 0;
+	display: flex;
+	justify-content: center;
+	border-radius: 2em;
+}
