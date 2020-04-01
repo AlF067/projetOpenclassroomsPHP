@@ -1,7 +1,7 @@
 <?php 
-    require "../modele/Chapters.php";
-    require "../modele/Commentaires.php";
-    require "../modele/Manager.php";
+    require "../../modele/Chapters.php";
+    require "../../modele/Commentaires.php";
+    require "../../modele/Manager.php";
     $manager = new Manager;
 
  

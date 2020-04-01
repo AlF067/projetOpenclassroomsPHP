@@ -114,10 +114,13 @@ class Manager
     $commentaires->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
 
     $commentaires->execute() or die(print_r($commentaires->errorInfo(), TRUE));
-
-    while ($donnees = $commentaires->fetch()) {
-      $commentaire[] = new Commentaires($donnees);
-    }
+    $commentaire = array();
+    
+      while ($donnees = $commentaires->fetch()) {
+        $commentaire[] = new Commentaires($donnees);
+      }
+    
+    
     return $commentaire;
   }
 

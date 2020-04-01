@@ -4,7 +4,7 @@
 <?php ob_start();  ?>
 
 <section id="ajout">
-    <p><a href="../controleur/ajoutAdmin.php"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
+    <p><a href="controleur/ajoutAdmin.php"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
 </section>
 <section>
     <?php    
@@ -19,8 +19,8 @@
                 </div>
                 <div class="lireChapitre">
                         <a href="controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Commentaires</a>
-                        <a href="../vue/vueConfirmationSuppressionAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Supprimer</a>
-                        <a href="../controleur/modificationAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Modifer</a>     
+                        <a href="vue/vueConfirmationSuppressionAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Supprimer</a>
+                        <a href="controleur/modificationChapitre.php?idChapitre=<?php echo $obj->idChapitre() ?>">Modifer</a>     
                     </div>
             </div>
         <?php
@@ -42,7 +42,7 @@
         } 
         ?>
         <div id="numerosPage">
-            <a href="../admin.php?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
+            <a href="../admin?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
         </div>
         

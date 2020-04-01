@@ -20,7 +20,7 @@ if (!($idChapitre > $manager->maxChaptres())) {
     /* Enregistre le signalement dans la BDD s'il y en a  */
 
     if (isset($_POST["signalement"])) {
-      
+
       $signalement = (int) $_POST["signalement"];
       $manager->signaler($signalement);
     }
@@ -29,13 +29,13 @@ if (!($idChapitre > $manager->maxChaptres())) {
       $limitMin = (int) $_POST['limitMin'];
 
       if ($limitMin >= $manager->maxCommentaires($idChapitre)) {
-        $limitMin= 0;
+        $limitMin = 0;
       }
     } else {
       $limitMin = 0;
     }
     /* Ajoute un commentaire s'il y en a un a ajouter */
-    
+
     if (isset($_GET["idChapitre"]) && isset($_POST["pseudo"]) && isset($_POST["commentaire"])) {
 
       $pseudo = (string) htmlspecialchars($_POST["pseudo"]);
@@ -43,9 +43,8 @@ if (!($idChapitre > $manager->maxChaptres())) {
       if (strlen($pseudo) <= 13 && strlen($commentaire) <= 151) {
         $manager->ajoutCommentaires($idChapitre, $pseudo, $commentaire);
       }
-      
     }
-    
+
     require "../vue/vueChapitresChoisis.php";
   } else {
     require "../vue/vuePageErreur.php";

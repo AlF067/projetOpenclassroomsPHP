@@ -11,7 +11,7 @@
     </script>
     <?php echo $linkStylesGeneral; ?>
     <?php echo $linkStyles; ?>
-    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <title><?php echo $titleAdmin; ?></title>
 </head>
 

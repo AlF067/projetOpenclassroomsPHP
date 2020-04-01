@@ -49,7 +49,10 @@
         <div class="pages">
             <?php $pages = 0;
             $limitMin = 0;
-            echo "<div id='nombreDePages'>Page : </div>"; ?>
+            if (!(count($manager->commentairesAll($idChapitre, $limitMin))) == 0) {
+                echo "<div class='nombreDePages'>Page : </div>";
+            }
+            ?>
             <?php while ($limitMin < $manager->maxCommentaires($_GET["idChapitre"])) { ?>
                 <?php
                 if (!$pages == 0) {

@@ -1,9 +1,8 @@
 <?php
 
-require "modele/Chapters.php";
-require "modele/Manager.php";
+require "../modele/Chapters.php";
+require "../modele/Manager.php";
 $manager = new Manager;
-
 
 
 /* Supprime un chapitre s'il y en a un a supprimer */
