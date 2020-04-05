@@ -2,6 +2,8 @@
 require "modele/Commentaires.php";
 require "modele/Chapters.php";
 require "modele/Manager.php";
+require "controleur/frontend.php";
+require "controleur/backend.php";
 $manager = new Manager;
 
 try {
@@ -13,11 +15,14 @@ try {
             require "vue/vueBiographie.php";
         }
         elseif ($_GET["action"] == "chapitres") {
-            require "controleur/chapitres.php";
+            chapitres();
         }
         elseif ($_GET["action"] == "lecture") {
-            require "controleur/chapitresChoisis.php";
-        }else{
+            chapitresChoisis();
+        }elseif ($_GET["action"] == "adminAccueil") {
+            adminHome();
+        }
+        else{
             throw new Exception('cette page n\'existe pas');
         }
     }else {
