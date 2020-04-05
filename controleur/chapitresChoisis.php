@@ -7,44 +7,46 @@ if (isset($_POST["idChapitre"])) {
   $idChapitre = (int) $_POST["idChapitre"];
 }
 
-if (!($idChapitre > $manager->maxChaptres())) {
-  if (!($idChapitre == 0)) {
+if (!($idChapitre > $manager->maxChaptres()) && !($idChapitre == 0)) {
 
-    $chapitreChoisis = $manager->chaptre($idChapitre);
 
-    /* Enregistre le signalement dans la BDD s'il y en a  */
+  $chapitreChoisis = $manager->chaptre($idChapitre);
 
-    if (isset($_POST["signalement"])) {
+  /* Enregistre le signalement dans la BDD s'il y en a  */
 
-      $signalement = (int) $_POST["signalement"];
+  if (isset($_POST["signalement"])) {
+    $signalement = (int) $_POST["signalement"];
+    if (is_int($signalement) && $signalement != 0) {
       $manager->signaler($signalement);
-    }
-    /* Pour la pagination des commentaires */
-    if (isset($_POST['limitMin'])) {
-      $limitMin = (int) $_POST['limitMin'];
-
-      if ($limitMin >= $manager->maxCommentaires($idChapitre)) {
-        $limitMin = 0;
-      }
     } else {
-      $limitMin = 0;
+      throw new Exception('une erreur s\'est produite');
     }
-    /* Ajoute un commentaire s'il y en a un a ajouter */
-
-    if (isset($_GET["idChapitre"]) && isset($_POST["pseudo"]) && isset($_POST["commentaire"])) {
-
-      $pseudo = (string) htmlspecialchars($_POST["pseudo"]);
-      $commentaire = (string) htmlspecialchars($_POST["commentaire"]);
-      if (strlen($pseudo) <= 13 && strlen($commentaire) <= 151) {
-        $manager->ajoutCommentaires($idChapitre, $pseudo, $commentaire);
-      }
-    }
-    require "vue/vueChapitresChoisis.php";
-
-  } else {
-    require "vue/vuePageErreur.php";
   }
-  
+  /* Pour la pagination des commentaires */
+  if (isset($_POST['limitMin'])) {
+    $limitMin = (int) $_POST['limitMin'];
+    if ($limitMin >= $manager->maxCommentaires($idChapitre)) {
+      throw new Exception('une erreur s\'est produite');
+    }
+  } else {
+    $limitMin = 0;
+  }
+  /* Ajoute un commentaire s'il y en a un a ajouter */
+
+  if (isset($_GET["idChapitre"]) && isset($_POST["pseudo"]) && isset($_POST["commentaire"])) {
+
+    $pseudo = (string) htmlspecialchars($_POST["pseudo"]);
+    $commentaire = (string) htmlspecialchars($_POST["commentaire"]);
+    if (strlen($pseudo) <= 13 && strlen($commentaire) <= 151) {
+      $manager->ajoutCommentaires($idChapitre, $pseudo, $commentaire);
+    } else {
+      throw new Exception('une erreur s\'est produite');
+    }
+  }
+
+  $commentairesAll = $manager->commentairesAll($idChapitre, $limitMin);
+  $maxCommentaires = $manager->maxCommentaires($_GET["idChapitre"]);
+  require "vue/vueChapitresChoisis.php";
 } else {
-  require "vue/vuePageErreur.php";
+  throw new Exception('ce chapitre n\'existe pas');
 }

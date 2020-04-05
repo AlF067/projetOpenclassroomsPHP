@@ -9,20 +9,22 @@ try {
         if ($_GET["action"] == "contact") {
             require "vue/vueContact.php";
         }
-        if ($_GET["action"] == "biographie") {
+        elseif ($_GET["action"] == "biographie") {
             require "vue/vueBiographie.php";
         }
-        if ($_GET["action"] == "chapitres") {
+        elseif ($_GET["action"] == "chapitres") {
             require "controleur/chapitres.php";
         }
-        if ($_GET["action"] == "lecture") {
+        elseif ($_GET["action"] == "lecture") {
             require "controleur/chapitresChoisis.php";
+        }else{
+            throw new Exception('cette page n\'existe pas');
         }
-        
-    
     }else {
+        $homeChapters = $manager->listChaptres(0, 3);
         require "vue/vueAccueil.php";
     }
 } catch (Exception $e) {
-    echo "erreur";
+    $erreur = "erreur : " . $e->getMessage();
+    require "vue/vuePageErreur.php";
 } 

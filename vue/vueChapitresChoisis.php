@@ -30,7 +30,7 @@
             <h3>Les Commentaires</h3>
             <?php
             
-            foreach ($manager->commentairesAll($idChapitre, $limitMin) as $obj) {
+            foreach ($commentairesAll as $obj) {
             ?>
                 <div class="commentairesAfficher">
                     <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
@@ -50,11 +50,11 @@
         <div class="pages">
             <?php $pages = 0;
             $limitMin = 0;
-            if (!(count($manager->commentairesAll($idChapitre, $limitMin))) == 0) {
+            if (!(count($commentairesAll)) == 0) {
                 echo "<div class='nombreDePages'>Page : </div>";
             }
             ?>
-            <?php while ($limitMin < $manager->maxCommentaires($_GET["idChapitre"])) { ?>
+            <?php while ($limitMin < $maxCommentaires) { ?>
                 <?php
                 if (!$pages == 0) {
                     echo "<div class='slash'>/</div>";

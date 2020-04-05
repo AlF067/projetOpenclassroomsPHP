@@ -5,10 +5,8 @@
 
 <?php
 
-foreach ($manager->listChaptres($limitMin, 5) as $obj) {
-
+foreach ($listChaptres as $obj) {
 ?>
-
     <div class="blocChapitre">
         <div class="chapitre">
             <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout() ?></h2>
@@ -24,16 +22,13 @@ foreach ($manager->listChaptres($limitMin, 5) as $obj) {
 ?>
 <div id="paginationChapitres">
     <?php
-    $pages = 0;
-    $limitMin = 0;
-    $commentairesParPage = 0;
     echo "<div id='nombreDePages'>Page : </div>";
-    while ($limitMin < $manager->maxChaptres()) {
+    while ($limitMin < $maxChaptres) {
     ?>
         <?php
         if (!$pages == 0) {
             echo "<div class='slash'>/</div>";
-        } 
+        }
         ?>
         <div id="numerosPage">
             <a href="index.php?action=chapitres&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
