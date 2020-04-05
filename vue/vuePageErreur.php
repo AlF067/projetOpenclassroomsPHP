@@ -1,6 +1,6 @@
 <?php $title = "Chapitre"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitresChoisis.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
 <div id="lecture">
     <p>Ce chapitre n'existe pas malheureusement !</p>

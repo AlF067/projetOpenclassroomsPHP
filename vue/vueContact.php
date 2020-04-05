@@ -1,6 +1,6 @@
 <?php $title = "Contact" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesBiographieContact.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesBiographieContact.css">' ?>
 <?php ob_start();  ?>
              <form action="" method="POST">
              	<h2>Contact</h2>

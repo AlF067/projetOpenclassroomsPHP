@@ -1,12 +1,12 @@
 <?php $titleAdmin = "Ajout d'un chapitre" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../../styles/stylesAdmin.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../../styles/stylesAjout.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesAdmin.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesAjout.css">' ?>
 <?php ob_start();  ?>
 <section id="ajout">
     <p>Ajouter un chapitre</p>
 </section>
 <section id="sectionFormulaire">
-    <form method="POST" action="../index.php">  
+    <form method="POST" action="admin.php?online=<?php echo $idConnection ?>">  
         <div id="caseTitre">
             <div>
                 <label for="titre">Titre : </label><input type="text" name="titre" id="titre">
@@ -23,7 +23,7 @@
             <button type="submit">Mettre le chapitre en ligne</button>
         </div>
     </form>
-    <a href="../../admin">Retour</a>
+    <a href="admin.php?online=<?php echo $idConnection ?>">Retour</a>
 </section>
 
 <?php $contenuAdmin = ob_get_clean();  ?>

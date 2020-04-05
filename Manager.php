@@ -15,8 +15,7 @@ class Manager
   private function bdd()
   {
     try {
-      //$this->_bdd = new PDO('mysql:host=db5000355873.hosting-data.io;dbname=dbs346120;port=3306', 'dbu393353', 'gEne1.1ionos');
-      $this->_bdd = new PDO('mysql:host=localhost;dbname=blog;port=3308', 'root', '');
+      $this->_bdd = new PDO('mysql:host=db5000355873.hosting-data.io;dbname=blog;port=3306', 'dbu393353', 'gEne1.1ionos');
       $this->_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
       die('Erreur : ' . $e->getMessage());

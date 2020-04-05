@@ -1,10 +1,10 @@
 <?php $titleAdmin = "Confirmation suppression" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../../styles/stylesAdmin.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../../styles/stylesConfirmation suppression.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesAdmin.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesConfirmation suppression.css">' ?>
 <?php ob_start();  ?>
 
 <section id="suppression">  
-        <form method="POST" action="../controleur/moderationCommentairesAdmin.php ">
+        <form method="POST" action="admin.php?online=<?php echo $idConnection ?>&action=commentaires ">
             <div>
                 <p>Souhaitez-vous réellement supprimer ce commentaire ?</p>
                 <p>(Toute suppression est définitive !)</p>

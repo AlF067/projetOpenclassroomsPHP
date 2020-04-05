@@ -1,6 +1,6 @@
 <?php $title = "Chapitre"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitresChoisis.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
 <div id="lecture">
 
@@ -8,14 +8,14 @@
     <p><?php echo $chapitreChoisis['histoire'] ?></p>
     <?php ?>
 
-    <div><a href="../controleur/chapitres.php">Retour au choix des chapitres</a></div>
+    <div><a href="index.php?action=chapitres">Retour au choix des chapitres</a></div>
 </div>
 
 
 
 <div id="rubriqueCommentaires">
     <div>
-        <form id="formulaireCommentaires" method="POST" action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
+        <form id="formulaireCommentaires" method="POST" action="index.php?action=lecture&idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
             <h3>Laisser un commentaire</h3>
             <input type="text" name="pseudo" placeholder="Votre pseudo" maxlength="12" required>
             <textarea name="commentaire" placeholder="Votre commentaire" maxlength="150" required></textarea>
@@ -29,12 +29,13 @@
         <div class="blocCommentaires">
             <h3>Les Commentaires</h3>
             <?php
-            foreach ($manager->commentairesAll($_GET["idChapitre"], $limitMin) as $obj) {
+            
+            foreach ($manager->commentairesAll($idChapitre, $limitMin) as $obj) {
             ?>
                 <div class="commentairesAfficher">
                     <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
                     <p><?php echo $obj->commentaire() ?></p>
-                    <form action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>" method="POST">
+                    <form action="index.php?action=lecture&idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>" method="POST">
                         <button type="submit" name="signalement" value="<?php echo $obj->id() ?>">signaler</button>
                     </form>
 
@@ -59,7 +60,7 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <form method="POST" action="../controleur/chapitresChoisis.php?idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
+                <form method="POST" action="index.php?action=lecture&idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
                     <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
                     <input type="hidden" name="limitMin" value="<?php echo $limitMin ?>">
                 </form> <?php $limitMin += 3; ?>

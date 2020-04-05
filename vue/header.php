@@ -6,10 +6,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="../index.php">Accueil</a></li>
-                    <li><a href="../controleur/biographie.php">Qui suis-je ?</a></li>
-                    <li><a href="../controleur/chapitres.php">Chapitres</a></li>
-                    <li><a href="../controleur/contact.php">Contact</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="index.php?action=biographie">Qui suis-je ?</a></li>
+                    <li><a href="index.php?action=chapitres">Chapitres</a></li>
+                    <li><a href="index.php?action=contact">Contact</a></li>
                 </ul>
             </nav>
         </div>

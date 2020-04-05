@@ -1,6 +1,6 @@
 <?php $title = "Chapitres"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitres.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitres.css">' ?>
 <?php ob_start();  ?>
 
 <?php
@@ -15,7 +15,7 @@ foreach ($manager->listChaptres($limitMin, 5) as $obj) {
             <p><?php echo $obj->histoire() ?></p>
         </div>
         <div class="lireChapitre">
-            <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
+            <a href="index.php?action=lecture&idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
         </div>
     </div>
 <?php
@@ -36,7 +36,7 @@ foreach ($manager->listChaptres($limitMin, 5) as $obj) {
         } 
         ?>
         <div id="numerosPage">
-            <a href="../controleur/chapitres.php?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
+            <a href="index.php?action=chapitres&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
         </div>
 

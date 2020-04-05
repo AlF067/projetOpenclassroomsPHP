@@ -1,6 +1,6 @@
 <?php $titleAdmin = "Modération commentaires"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../../styles/stylesAdmin.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../../styles/stylesChapitresChoisis.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesAdmin.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
 <div id="moderationCommentaires">
     <div class="commentaires">
@@ -14,7 +14,7 @@
                         <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
                         <p><?php echo $obj->commentaire() ?></p>
                         <div>
-                            <a href="../controleur/confirmationSuppressionCommentaire.php?id=<?php echo $obj->id() ?>&idChapitre=<?php echo $obj->idChapitre() ?> ">Supprimer</a>
+                            <a href="admin.php?online=<?php echo $idConnection ?>&action=confirmationSuppressionCommentaires&id=<?php echo $obj->id() ?>&idChapitre=<?php echo $obj->idChapitre() ?> ">Supprimer</a>
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <form method="POST" action="../controleur/moderationCommentairesAdmin.php">
+                <form method="POST" action="admin.php?online=<?php echo $idConnection ?>&action=commentaires">
                     <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
                     <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>>">
                     <input type="hidden" name="limitMin" value="<?php echo $limitMin ?>">
@@ -70,7 +70,7 @@
                 <div class="commentairesAfficher">
                     <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateSignalement() . "</span>" ?></h4>
                     <p><?php echo $obj->commentaire() ?></p>
-                    <form method="POST" action="../controleur/moderationCommentairesAdmin.php">
+                    <form method="POST" action="admin.php?online=<?php echo $idConnection ?>&action=commentaires">
                         <button type="submit" name="effacerSignalement" value="<?php echo $obj->id() ?>">Effacer signalement</button>
                         <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>">
                         <input type="hidden" name="limitMinSignal" value="<?php echo $limitMinSignal ?>">
@@ -97,7 +97,7 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <form method="POST" action="../controleur/moderationCommentairesAdmin.php">
+                <form method="POST" action="admin.php?online=<?php echo $idConnection ?>&action=commentaires">
                     <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
                     <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>">
                     <input type="hidden" name="limitMinSignal" value="<?php echo $limitMinSignal ?>">
@@ -116,7 +116,7 @@
     <?php   ?>
 </div>
 
-<p id="retour"><a href="../../admin">Retour</a></p>
+<p id="retour"><a href="admin.php?online=<?php echo $idConnection ?>">Retour</a></p>
 
 
 </div>

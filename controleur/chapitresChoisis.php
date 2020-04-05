@@ -1,9 +1,4 @@
 <?php
-require "../modele/Chapters.php";
-require "../modele/Commentaires.php";
-require "../modele/Manager.php";
-$manager = new Manager;
-
 
 if (isset($_GET["idChapitre"])) {
   $idChapitre = (int) $_GET["idChapitre"];
@@ -44,11 +39,12 @@ if (!($idChapitre > $manager->maxChaptres())) {
         $manager->ajoutCommentaires($idChapitre, $pseudo, $commentaire);
       }
     }
+    require "vue/vueChapitresChoisis.php";
 
-    require "../vue/vueChapitresChoisis.php";
   } else {
-    require "../vue/vuePageErreur.php";
+    require "vue/vuePageErreur.php";
   }
+  
 } else {
-  require "../vue/vuePageErreur.php";
+  require "vue/vuePageErreur.php";
 }

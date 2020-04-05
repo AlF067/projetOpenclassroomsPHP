@@ -1,6 +1,6 @@
 <?php $title = "Accueil" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesIndex.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesIndex.css">' ?>
 <?php ob_start();  ?>
 
             <div id="desc">
@@ -14,7 +14,7 @@
                                             <p><?php echo $obj->histoire() ?></p>
                                         </div>
                                         <div class="lireChapitre">
-                                            <a href="../controleur/chapitresChoisis.php?idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
+                                            <a href="index.php?action=lecture&idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
                                         </div>
                                     </div>
                         
@@ -23,7 +23,7 @@
                     ?> 
                 </div>
 
-                <p><a href="../controleur/chapitres.php">Tous les chapitres</a></p>
+                <p><a href="index.php?action=chapitres">Tous les chapitres</a></p>
             </div>
 
 <?php $contenu = ob_get_clean();  ?>

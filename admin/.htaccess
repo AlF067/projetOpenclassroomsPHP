@@ -1,5 +1,0 @@
-Options all
-AuthType Basic
-AuthName "Page d'administration protégée"
-AuthUserFile "C:\wamp64\www\projetOpenclassroomsPHP\admin\.htpasswd"
-Require valid-user

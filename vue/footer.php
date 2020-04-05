@@ -2,13 +2,13 @@
         <div id="mentions">
                 
             <ul>
-                <li><a href="../index.php">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
                 <li>/</li>
-                <li><a href="../controleur/biographie.php">Qui suis-je ?</a></li>
+                <li><a href="index.php?action=biographie">Qui suis-je ?</a></li>
                 <li>/</li>
-                <li><a href="../controleur/chapitres.php">Chapitres</a></li>
+                <li><a href="index.php?action=chapitres">Chapitres</a></li>
                 <li>/</li>
-                <li><a href="../controleur/contact.php">Contact</a></li>
+                <li><a href="index.php?action=contact">Contact</a></li>
                 <li>/</li>
                 <li><a href="#">Mentions Légales</a></li>
             </ul>
@@ -16,9 +16,9 @@
             <div id="reseaux">
                 <p>Suivez moi sur:</p>
                 <div >
-                    <img src="../image/facebook-icon.png">
-                    <img src="../image/instagram-icon.png">
-                    <img src="../image/Twitter-icon.png">
+                    <img src="image/facebook-icon.png">
+                    <img src="image/instagram-icon.png">
+                    <img src="image/Twitter-icon.png">
                 </div>
             </div>
         </div>

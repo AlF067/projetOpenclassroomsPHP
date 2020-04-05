@@ -1,10 +1,10 @@
 <?php $titleAdmin = "Accueil Administrateur"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="../styles/stylesAdmin.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="../styles/stylesChapitres.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesAdmin.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitres.css">' ?>
 <?php ob_start();  ?>
 
 <section id="ajout">
-    <p><a href="controleur/ajoutAdmin.php"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
+    <p><a href="admin.php?online=<?php echo $idConnection ?>&action=ajout"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
 </section>
 <section>
     <?php if (isset($chapitreDejaExistant)) {
@@ -23,9 +23,9 @@
                 <p><?php echo $obj->histoire() ?></p>
             </div>
             <div class="lireChapitre">
-                <a href="controleur/moderationCommentairesAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Commentaires</a>
-                <a href="vue/vueConfirmationSuppressionAdmin.php?idChapitre=<?php echo $obj->idChapitre() ?>">Supprimer</a>
-                <a href="controleur/modificationChapitre.php?idChapitre=<?php echo $obj->idChapitre() ?>">Modifer</a>
+                <a href="admin.php?online=<?php echo $idConnection ?>&action=commentaires&idChapitre=<?php echo $obj->idChapitre() ?>">Commentaires</a>
+                <a href="admin.php?online=<?php echo $idConnection ?>&action=supprimerChapitre&idChapitre=<?php echo $obj->idChapitre() ?>">Supprimer</a>
+                <a href="admin.php?online=<?php echo $idConnection ?>&action=modif&idChapitre=<?php echo $obj->idChapitre() ?>">Modifer</a>
             </div>
         </div>
     <?php
@@ -47,7 +47,7 @@
             }
             ?>
             <div id="numerosPage">
-                <a href="../admin?limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
+                <a href="admin.php?online=<?php echo $idConnection ?>&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
             </div>
 
