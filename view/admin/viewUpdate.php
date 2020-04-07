@@ -1,6 +1,6 @@
 <?php $titleAdmin = "Modifications d'un chapitre" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesAdmin.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesAjout.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="public/styles/stylesAdmin.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="public/styles/stylesAjout.css">' ?>
 <?php ob_start();  ?>
 
 
@@ -8,7 +8,7 @@
             <p>Modification d'un chapitre , <?php echo $chapitreChoisis['titre'] ; ?></p>
         </section>
         <section id="sectionFormulaire">
-            <form method="POST" action="admin.php?online=<?php echo $idConnection ?>">  
+            <form method="POST" action="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">  
                 <div id="caseTitre">
                     <div>
                         <label for="modifTitre">Titre : </label><input type="text" name="modifTitre" id="modifTitre" value = "<?php echo $chapitreChoisis['titre'] ; ?>" >
@@ -29,7 +29,7 @@
                 <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ; ?>">
                 
             </form>
-            <a href="admin.php?online=<?php echo $idConnection ?>">Retour</a>
+            <a href="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">Retour</a>
         </section>
 
 <?php $contenuAdmin = ob_get_clean();  ?>

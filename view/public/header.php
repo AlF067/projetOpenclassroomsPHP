@@ -8,7 +8,7 @@
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="index.php?action=biographie">Qui suis-je ?</a></li>
-                    <li><a href="index.php?action=chapitres">Chapitres</a></li>
+                    <li><a href="index.php?action=chaptres">Chapitres</a></li>
                     <li><a href="index.php?action=contact">Contact</a></li>
                 </ul>
             </nav>

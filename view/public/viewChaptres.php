@@ -1,6 +1,6 @@
 <?php $title = "Chapitres"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitres.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="public/styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="public/styles/stylesChapitres.css">' ?>
 <?php ob_start();  ?>
 
 <?php
@@ -31,7 +31,7 @@ foreach ($listChaptres as $obj) {
         }
         ?>
         <div id="numerosPage">
-            <a href="index.php?action=chapitres&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
+            <a href="index.php?action=chaptres&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
         </div>
 
@@ -46,4 +46,4 @@ foreach ($listChaptres as $obj) {
 
 
 <?php $contenu = ob_get_clean();  ?>
-<?php require 'gabarit.php'; ?>
+<?php require 'template.php'; ?>

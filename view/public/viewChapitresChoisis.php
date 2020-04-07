@@ -1,6 +1,6 @@
 <?php $title = "Chapitre"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesChapitresChoisis.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="public/styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="public/styles/stylesChapitresChoisis.css">' ?>
 <?php ob_start();  ?>
 <div id="lecture">
 
@@ -8,7 +8,7 @@
     <p><?php echo $chapitreChoisis['histoire'] ?></p>
     <?php ?>
 
-    <div><a href="index.php?action=chapitres">Retour au choix des chapitres</a></div>
+    <div><a href="index.php?action=chaptres">Retour au choix des chapitres</a></div>
 </div>
 
 
@@ -81,4 +81,4 @@
 
 <?php $contenu = ob_get_clean();  ?>
 
-<?php require 'gabarit.php'; ?>
+<?php require 'template.php'; ?>

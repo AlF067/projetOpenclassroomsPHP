@@ -1,7 +1,7 @@
 <?php
 
 
-function chapitres()
+function chaptres()
 {
     $manager = new Manager;
     if (isset($_GET["limitMin"])) {
@@ -18,7 +18,7 @@ function chapitres()
         $limitMin = 0;
         $commentairesParPage = 0;
 
-        require "vue/vueChapitres.php";
+        require "view/public/viewChaptres.php";
     } else {
         throw new Exception('Une erreur s\'est produite');
     }
@@ -72,7 +72,7 @@ function chapitresChoisis(){
       
         $commentairesAll = $manager->commentairesAll($idChapitre, $limitMin);
         $maxCommentaires = $manager->maxCommentaires($_GET["idChapitre"]);
-        require "vue/vueChapitresChoisis.php";
+        require "view/public/viewChapitresChoisis.php";
       } else {
         throw new Exception('ce chapitre n\'existe pas');
       }

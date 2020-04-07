@@ -1,6 +1,6 @@
 <?php $title = "Accueil"; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesGeneral.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesIndex.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="public/styles/stylesGeneral.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="public/styles/stylesIndex.css">' ?>
 <?php ob_start();  ?>
 
 <div id="desc">
@@ -27,4 +27,4 @@
 </div>
 
 <?php $contenu = ob_get_clean();  ?>
-<?php require 'gabarit.php'; ?>
+<?php require 'template.php'; ?>

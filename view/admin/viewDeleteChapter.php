@@ -1,10 +1,10 @@
 <?php $titleAdmin = "Confirmation suppression" ; ?>
-<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="styles/stylesAdmin.css">' ?>
-<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="styles/stylesConfirmation suppression.css">' ?>
+<?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="public/styles/stylesAdmin.css">' ?>
+<?php $linkStyles = '<link rel="stylesheet" type="text/css" href="public/styles/stylesConfirmation suppression.css">' ?>
 <?php ob_start();  ?>
 
 <section id="suppression">  
-        <form method="POST" action="admin.php?online=<?php echo $idConnection ?>">
+        <form method="POST" action="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">
             <div>
                 <p>Souhaitez-vous réellement supprimer ce chapitre ?</p>
                 <p>(Toute suppression est définitive !)</p>

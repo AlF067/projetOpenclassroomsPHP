@@ -6,7 +6,7 @@
                 <li>/</li>
                 <li><a href="index.php?action=biographie">Qui suis-je ?</a></li>
                 <li>/</li>
-                <li><a href="index.php?action=chapitres">Chapitres</a></li>
+                <li><a href="index.php?action=chaptres">Chapitres</a></li>
                 <li>/</li>
                 <li><a href="index.php?action=contact">Contact</a></li>
                 <li>/</li>
@@ -16,9 +16,9 @@
             <div id="reseaux">
                 <p>Suivez moi sur:</p>
                 <div >
-                    <img src="image/facebook-icon.png">
-                    <img src="image/instagram-icon.png">
-                    <img src="image/Twitter-icon.png">
+                    <img src="public/image/facebook-icon.png">
+                    <img src="public/image/instagram-icon.png">
+                    <img src="public/image/Twitter-icon.png">
                 </div>
             </div>
         </div>
