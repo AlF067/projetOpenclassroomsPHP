@@ -49,6 +49,7 @@ header a{
 }
 
 #titreRoman{
+	
 	align-self: center;
 	font-size: 1.5em;
 	text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
@@ -108,4 +109,34 @@ footer{
 
 #copywright p{
 	margin: 0;
+}
+
+@media all and (max-width : 400px){
+
+/* HEADER */
+
+	#banniere{		
+		height: 7%;	
+	}
+
+	#presentation p{
+		font-size: 0.6em;
+	}
+
+	header nav{
+		width: 50%;
+		font-size: 0.5em;	
+	}
+
+	#titreRoman{
+		margin-left: 1.5em;
+	}
+
+/* FOOTER */
+	#mentions ul{
+		width: 100%;
+		justify-content: space-around;
+		font-size: 0.7em;
+	}
+			
 }

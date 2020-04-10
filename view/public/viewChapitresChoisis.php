@@ -78,7 +78,7 @@
 
 
 
-
+<script  src="public/js/script.js"></script>
 <?php $contenu = ob_get_clean();  ?>
 
 <?php require 'template.php'; ?>

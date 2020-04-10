@@ -54,6 +54,28 @@ textarea{
 
 button{
 	border-radius: 1em;
+	background-color: darkgray;
 }
 
+
+@media all and (max-width : 400px){
+
+
+	#caseTitre{
+		flex-direction: column;
+	}
+
+	#caseTitre div{
+		display: flex;
+		flex-direction: column;
+	}
+
+	
+
+	textarea{
+		height: 70%;
+		
+	}
+			
+}
 

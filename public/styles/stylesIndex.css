@@ -35,7 +35,6 @@ section{
 #billets{
 	width: 75%;
 	height: 88%;
-
 	display: flex;
 	justify-content: space-around;
 
@@ -54,3 +53,26 @@ section a{
 	text-decoration: none;
 }
 
+@media all and (max-width : 400px){
+
+	section{
+		height: auto;
+		padding-top: 1em;
+	}
+	#desc{	
+		height: 750px;	
+		bottom: 0;
+	}
+	
+	#billets{
+		width: 95%;	
+		
+		flex-direction: column;
+	}
+
+	.blocBillet{
+		width: 100%;
+		margin-bottom: 0.5em;
+	}
+		
+}

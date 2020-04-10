@@ -1,3 +1,7 @@
+body{
+	margin: 0;
+}
+
 
 header{
 	width: 100%;
@@ -77,3 +81,55 @@ footer{
 	align-items: center;
 }
 
+@media all and (max-width : 400px){
+
+	header{
+		font-size: 0.5em;
+	}
+
+	.blocChapitre{
+		margin: 0.25em 0;	
+	}
+
+	.chapitre h2{
+		font-size: 1em;
+	}
+
+	#copywright{
+		text-align: center;
+	}
+
+	/* LOGIN */
+
+	#login{
+		height: auto;
+		padding-top: 0.5em;
+	}
+
+
+	#login form{
+		display: flex;
+		flex-direction: column;	
+	}
+
+	input{
+		margin-bottom: 0.5em;
+	}
+
+	#login button{
+		margin-bottom: 0.5em;
+	}
+
+	/* view home */
+
+	#ajout{
+		height: 50px;
+		border-radius: 0.5em;
+	}
+	#ajout p{
+		font-size: 1.5em;
+	}
+
+
+					
+}

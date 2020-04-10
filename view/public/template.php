@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="logo/jpg" href="public/image/alaska22.jpg" />
         <?php echo $linkStylesGeneral; ?>
         <?php echo $linkStyles; ?>
         <title><?php echo $title; ?></title>
@@ -15,5 +17,7 @@
 
         <?php require "footer.php" ?>
         
+         
+
     </body>
 </html>

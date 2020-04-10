@@ -11,7 +11,8 @@
     </script>
     <?php echo $linkStylesGeneral; ?>
     <?php echo $linkStyles; ?>
-    <link rel="stylesheet" href="../fontawesome/css/all.css">
+    <link rel="stylesheet" href="public/fontawesome/css/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $titleAdmin; ?></title>
 </head>
 

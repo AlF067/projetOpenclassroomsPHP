@@ -11,5 +11,5 @@
     </div>
 
     <?php $contenuAdmin = ob_get_clean();  ?>
-<?php require 'gabaritAdmin.php'; ?>
+<?php require 'templateAdmin.php'; ?>
        

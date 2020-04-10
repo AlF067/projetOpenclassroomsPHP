@@ -23,7 +23,7 @@
         ?>
     </div>
 
-    <p><a href="index.php?action=chapitres">Tous les chapitres</a></p>
+    <p><a href="index.php?action=chaptres">Tous les chapitres</a></p>
 </div>
 
 <?php $contenu = ob_get_clean();  ?>
