@@ -105,14 +105,33 @@ class Manager
     return $maxChapters;
   }
 
-  /* PARIE COMMENTAIRES */
+  /* PARTIE COMMENTAIRES */
 
-  public function commentairesAll($idChapitre, $limitMin)
+  public function commentairesAll($idChapitre)
   {
 
-    $commentaires = $this->_bdd->prepare('SELECT * FROM commentaires WHERE idChapitre = :idChapitre ORDER BY dateHeure DESC LIMIT :limitMin , 3 ');
+    $commentaires = $this->_bdd->prepare('SELECT * FROM commentaires WHERE idChapitre = :idChapitre ORDER BY dateHeure DESC ');
+    $commentaires->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
+    
+
+    $commentaires->execute() or die(print_r($commentaires->errorInfo(), TRUE));
+    $commentaire = array();
+    
+      while ($donnees = $commentaires->fetch()) {
+        $commentaire[] = new Commentaires($donnees);
+      }
+    
+    
+    return $commentaire;
+  }
+
+  public function commentairesList($idChapitre , $limitMin)
+  {
+
+    $commentaires = $this->_bdd->prepare('SELECT * FROM commentaires WHERE idChapitre = :idChapitre ORDER BY dateHeure DESC LIMIT :limitMin, 3 ');
     $commentaires->bindValue(':idChapitre', $idChapitre, PDO::PARAM_INT);
     $commentaires->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
+    
 
     $commentaires->execute() or die(print_r($commentaires->errorInfo(), TRUE));
     $commentaire = array();

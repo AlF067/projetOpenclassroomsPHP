@@ -116,7 +116,7 @@ function comments()
         $limitMinSignal = 0;
     }
 
-    $commentsAll = $manager->commentairesAll($idChapitre, $limitMin);
+    $commentsAll = $manager->commentairesList($idChapitre, $limitMin);
     $maxComments = $manager->maxCommentaires($idChapitre);
     $commentsSignal = $manager->commentairesSignaler($idChapitre, $limitMinSignal);
     $maxSignalComments = $manager->maxCommentairesSignaler($idChapitre);

@@ -135,8 +135,38 @@ h4 span{
 .blocCommentaires{
 	min-height: 430px;
 	width: 100%;
-	height: 100%;
-	
+		
+}
+
+#messageSignalement{
+	color: red;
+}
+
+#slide{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 60%;
+}
+
+.numeroPage{
+	cursor: pointer;
+	background-color:gray;
+	padding: 4px;
+	margin: 0 5px;
+	border-radius: 20px;
+}
+
+.numeroPage:hover{
+	background-color:rgb(168, 168, 216) ;
+}
+
+.fa-chevron-right, .fa-chevron-left{
+	cursor: pointer;
+}
+
+.fa-chevron-right:hover, .fa-chevron-left:hover{
+	color:rgb(168, 168, 216);
 }
 
 @media all and (max-width : 400px){

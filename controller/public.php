@@ -70,7 +70,7 @@ function chapitresChoisis(){
           }
         }
       
-        $commentairesAll = $manager->commentairesAll($idChapitre, $limitMin);
+        $commentairesAll = $manager->commentairesAll($idChapitre);
         $maxCommentaires = $manager->maxCommentaires($_GET["idChapitre"]);
         require "view/public/viewChapitresChoisis.php";
       } else {

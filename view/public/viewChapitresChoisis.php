@@ -29,7 +29,10 @@
         <div class="blocCommentaires">
             <h3>Les Commentaires</h3>
             <?php
-            
+            if (isset($signalement)) {
+                echo "<p id='messageSignalement'>Votre signalement a été pris en compte</p>";
+            }
+
             foreach ($commentairesAll as $obj) {
             ?>
                 <div class="commentairesAfficher">
@@ -45,40 +48,30 @@
             }
             ?>
         </div>
+        <div id="slide">
+            <p id="precedent"><i class="fas fa-chevron-left"></i></p>
 
-        <?php  ?>
-        <div class="pages">
-            <?php $pages = 0;
-            $limitMin = 0;
-            if (!(count($commentairesAll)) == 0) {
-                echo "<div class='nombreDePages'>Page : </div>";
-            }
-            ?>
-            <?php while ($limitMin < $maxCommentaires) { ?>
-                <?php
-                if (!$pages == 0) {
-                    echo "<div class='slash'>/</div>";
-                }
+            <div class="pages" id="pages">
+                <?php $pages = 0;
+                $limitMin = 0;
+                
                 ?>
-                <form method="POST" action="index.php?action=lecture&idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
-                    <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
-                    <input type="hidden" name="limitMin" value="<?php echo $limitMin ?>">
-                </form> <?php $limitMin += 3; ?>
-                <?php $pages++; ?>
+                <?php while ($limitMin < $maxCommentaires) { ?>
+                   
+                    <div class="numeroPage"><?php echo $pages + 1; ?></div>
+                    <?php $limitMin += 3; ?>
+                    <?php $pages++; ?>
 
-            <?php } ?>
+                <?php }  ?>
+
+            </div>
+            <p id="suivant"><i class="fas fa-chevron-right"></i></p>
 
         </div>
-
-
-    </div>
-    <?php  ?>
+    </div> <?php  ?>
 </div>
-
-
-
-
-<script  src="public/js/script.js"></script>
+<script src="public/js/script.js">
+</script>
 <?php $contenu = ob_get_clean();  ?>
 
 <?php require 'template.php'; ?>
