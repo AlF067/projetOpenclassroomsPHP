@@ -19,17 +19,31 @@ section{
 	z-index: 1;
 }
 
+#allChapters{
+	margin-top: 2.3em;
+}
+
 .blocBillet{
+	position: initial;
 	width: 30%;
 	height: 100%;
 	border: 1px black solid;
-	background-color: gray;
+	background-color: #B4CCE2;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	border-radius: 1em;
+	padding: 0.3em;
+	transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1000ms;
+  
+}
 
+.blocBillet:hover{
+	transform: scale(1.15);
+	z-index: 1;
 }
 
 #billets{
@@ -37,7 +51,6 @@ section{
 	height: 88%;
 	display: flex;
 	justify-content: space-around;
-
 }
 
 .billet{
@@ -47,6 +60,16 @@ section{
 
 .lireChapitre{
 	margin-top: 0.5em;
+	
+}
+.lireChapitre a{
+	margin-top: 0.5em;
+	color: black;
+	font-weight: bold;
+}
+.lireChapitre a:visited{
+	margin-top: 0.5em;
+	color: rgb(177, 43, 43);
 }
 
 section a{
@@ -71,8 +94,12 @@ section a{
 	}
 
 	.blocBillet{
-		width: 100%;
+		width: 96%;
 		margin-bottom: 0.5em;
+	}
+
+	.blocBillet:hover{
+		padding: 0.3em;
 	}
 		
 }

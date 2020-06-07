@@ -16,7 +16,7 @@
 	             		<input class="labelInput" required type="text" name="nom" id="nom">
 	             		<input class="labelInput" required type="text" name="prenom" id="prenom">
 	             		<input class="labelInput" required type="email" name="email" id="email">
-	             		<input class="labelInput" required type="text" name="sujet" id="email">
+	             		<input class="labelInput" required type="text" name="sujet" id="sujet">
 	             	</div>
              	</div>
              
@@ -25,7 +25,7 @@
 	             	<textarea id="message"></textarea>
              	</div>
 
-             	<input type="button" name="envoyer" value="Envoyer">
+             	<input type="button" name="envoyer" id="bouton" value="Envoyer">
              </form>
 
 <?php $contenu = ob_get_clean();  ?>

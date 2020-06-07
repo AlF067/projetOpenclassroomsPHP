@@ -1,3 +1,19 @@
+//Menu hamburger
+
+$(function(){
+    $('.menu-icon').click(function(e){
+        e.preventDefault();
+        $this = $(this);
+        if($this.hasClass('is-opened')){
+            $this.addClass('is-closed').removeClass('is-opened');
+            $('#menuList').css("display","none");
+        }else{
+            $this.removeClass('is-closed').addClass('is-opened');
+            $('#menuList').css("display","flex");
+        }
+    })
+});
+
 //pagination commentaires
 
 let commentairesAfficher = document.getElementsByClassName("commentairesAfficher");
@@ -87,7 +103,6 @@ document.getElementById("pages").addEventListener("click", function (clic) {
             numeroPage[b].style.backgroundColor = "gray"; //met tous les numero de pages en backgroundColor = gray
             b++;
         }
-        console.log(pageNum);
         numeroPage[pageNum].style.backgroundColor = "rgb(168, 168, 216)";
         b = 0;
         while (b < commentairesAfficher.length) {
@@ -111,6 +126,8 @@ document.getElementById("pages").addEventListener("click", function (clic) {
 
 
 });
+
+
 
 
 

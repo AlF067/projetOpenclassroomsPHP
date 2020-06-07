@@ -11,7 +11,7 @@
             <div class="blocBillet">
                 <div class="billet">
                     <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout() ?></h2>
-                    <p><?php echo $obj->histoire() ?></p>
+                    <?php echo $obj->histoire() ?>
                 </div>
                 <div class="lireChapitre">
                     <a href="index.php?action=lecture&idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
@@ -23,7 +23,7 @@
         ?>
     </div>
 
-    <p><a href="index.php?action=chaptres">Tous les chapitres</a></p>
+    <p id="allChapters"><a href="index.php?action=chaptres">Tous les chapitres</a></p>
 </div>
 
 <?php $contenu = ob_get_clean();  ?>
