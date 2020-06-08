@@ -16,9 +16,9 @@
             <div id="reseaux">
                 <p>Suivez moi sur:</p>
                 <div >
-                    <img src="public/image/facebook-icon.png">
-                    <img src="public/image/instagram-icon.png">
-                    <img src="public/image/Twitter-icon.png">
+                    <img src="public/image/facebook-icon.png" alt="facebook-icon">
+                    <img src="public/image/instagram-icon.png" alt="instagram-icon">
+                    <img src="public/image/Twitter-icon.png" alt="Twitter-icon">
                 </div>
             </div>
         </div>

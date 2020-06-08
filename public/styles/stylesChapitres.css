@@ -60,11 +60,11 @@ section{
 	margin: 0 0.2em;
 }
 
-#numerosPage{
+.numerosPage{
 	display: flex;	
 }
 
-#numerosPage a{
+.numerosPage a{
 	text-decoration: none;
 }
 

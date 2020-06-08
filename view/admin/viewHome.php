@@ -46,7 +46,7 @@
                 echo "<div class='slash'>/</div>";
             }
             ?>
-            <div id="numerosPage">
+            <div class="numerosPage">
                 <a href="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
             </div>
