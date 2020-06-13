@@ -4,7 +4,6 @@ require "model/Chapters.php";
 require "model/Manager.php";
 require "controller/public.php";
 require "controller/admin.php";
-$manager = new Manager;
 
 try {
     if (isset($_GET["action"])) {
@@ -38,8 +37,8 @@ try {
             throw new Exception('cette page n\'existe pas');
         }
     } else {
-        $homeChapters = $manager->listChaptres(0, 3);
-        require "view/public/viewHome.php";
+        home();
+        
     }
 } catch (Exception $e) {
     $erreur = "erreur : " . $e->getMessage();

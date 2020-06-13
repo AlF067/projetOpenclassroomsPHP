@@ -1,5 +1,9 @@
 <?php
-
+function home(){
+  $manager = new Manager;
+  $homeChapters = $manager->listChaptres(0, 3);
+  require "view/public/viewHome.php";
+}
 
 function chaptres()
 {
