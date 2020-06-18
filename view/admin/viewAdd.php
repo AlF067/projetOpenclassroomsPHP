@@ -6,7 +6,7 @@
     <p>Ajouter un chapitre</p>
 </section>
 <section id="sectionFormulaire">
-    <form method="POST" action="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">  
+    <form class="formulaireAjoutEtModif" method="POST" action="index.php?action=XHYEOSODID">  
         <div id="caseTitre">
             <div>
                 <label for="titre">Titre : </label><input type="text" name="titre" id="titre">
@@ -23,7 +23,7 @@
             <button type="submit">Mettre le chapitre en ligne</button>
         </div>
     </form>
-    <a href="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">Retour</a>
+    <a href="index.php?action=XHYEOSODID">Retour</a>
 </section>
 
 <?php $contenuAdmin = ob_get_clean();  ?>

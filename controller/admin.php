@@ -1,20 +1,23 @@
 <?php
+function deconnect(){
+    $_SESSION["connected"] = false;; 
+}
 
 function adminHome()
 {
+    
     $manager = new Manager;
+    $maxChaptres = $manager->maxChaptres();
+    
     if (isset($_POST["user"]) && isset($_POST["password"])) {
         if ($_POST["user"] == "alf" && $_POST["password"] == "mdp") {        
-            $idConnection = "online";
+            $_SESSION["connected"] = true;
         }else {
-            $idConnection = "pas de connection" ;
+            $_SESSION["connected"] = false;
         }
-    } elseif (isset($_GET["online"])) {
-        if (isset($_GET["online"]) == "online") {
-            $idConnection = $_GET["online"];
-        }
-    }
-    if ($idConnection == "online") {
+    } 
+   
+    if (isset($_SESSION["connected"]) && $_SESSION["connected"] == true) {
 
         /* Supprime un chapitre s'il y en a un a supprimer */
         if (isset($_POST["oui"])) {
@@ -38,26 +41,31 @@ function adminHome()
         /* Variable necessaire pour afficher la page de la liste des chapitre (5 chapitres par page) */
         if (isset($_GET["limitMin"])) {
             $limitMin = $_GET["limitMin"];
+            if ($limitMin >= $maxChaptres){
+                throw new Exception('Une erreur s\'est produite');
+            }
         } else {
             $limitMin = 0;
         }
+        $listChaptres = $manager->listChaptres($limitMin, 5);
 
         require "view/admin/viewHome.php";
     } else {
-        echo "mauvais mot de passe ou nom d'utilisateur";
+        if (!(isset($_POST["deconnexion"]))) {
+            echo "mauvais mot de passe ou nom d'utilisateur" ;           
+        }
+        
         require "view/admin/login.php";
     }
 }
 
 function add()
 {
-    $idConnection = "online";
     require "view/admin/viewAdd.php";
 }
 
 function update()
 {
-    $idConnection = "online";
     $manager = new Manager;
 
     $chapitreChoisis = $manager->chaptre($_GET["idChapitre"]);
@@ -66,14 +74,13 @@ function update()
 
 function delete()
 {
-    $idConnection = "online";
     require "view/admin/viewDeleteChapter.php";
 }
 
 function comments()
 {
     $manager = new Manager;
-    $idConnection = "online";
+    $allIdChaptres = $manager->allIdChaptres();
 
     //Commentaires affichés en fonction de l'id du chapitre 
     if (isset($_POST["idChapitre"])) {
@@ -84,7 +91,7 @@ function comments()
         throw new Exception('une erreur s\'est produite');
     }
 
-    if ($idChapitre > $manager->maxChaptres()) {
+    if (!(in_array($idChapitre, $allIdChaptres))) {
         throw new Exception('le chapitre choisi n\'existe pas');
     }
 
@@ -131,36 +138,4 @@ function comments()
     
 }
 
-function admie()
-{
-    try {
 
-        if (isset($idConnection)) {
-
-            if ($idConnection = "online") {
-                if (isset($_GET["actionAdmin"])) {
-                    if ($_GET["action"] == "ajout") {
-                    }
-
-
-
-
-                    if ($_GET["action"] == "confirmationSuppressionCommentaires") {
-                        require "vue/vueConfirmationSuppressionCommentaire.php";
-                    }
-                } else {
-
-
-
-                    require "view/admin/vueAccueilAdmin.php";
-                }
-            } else {
-                require "view/admin/login.php";
-            }
-        } else {
-            require "view/admin/login.php";
-        }
-    } catch (Exception $e) {
-        echo "erreur";
-    }
-}

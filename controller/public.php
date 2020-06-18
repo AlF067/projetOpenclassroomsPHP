@@ -30,14 +30,16 @@ function chaptres()
 
 function chapitresChoisis(){
     $manager = new Manager;
-    if (isset($_GET["idChapitre"])) {
-        $idChapitre = (int) $_GET["idChapitre"];
+    $allIdChaptres = $manager->allIdChaptres();
+    
+    if (isset($_GET["id"])) {
+        $idChapitre = (int) $_GET["id"];
       }
-      if (isset($_POST["idChapitre"])) {
-        $idChapitre = (int) $_POST["idChapitre"];
+      if (isset($_POST["id"])) {
+        $idChapitre = (int) $_POST["id"];
       }
       
-      if (!($idChapitre > $manager->maxChaptres()) && !($idChapitre == 0)) {
+      if (in_array($idChapitre, $allIdChaptres)) {
       
       
         $chapitreChoisis = $manager->chaptre($idChapitre);
@@ -63,7 +65,7 @@ function chapitresChoisis(){
         }
         /* Ajoute un commentaire s'il y en a un a ajouter */
       
-        if (isset($_GET["idChapitre"]) && isset($_POST["pseudo"]) && isset($_POST["commentaire"])) {
+        if (isset($_POST["pseudo"]) && isset($_POST["commentaire"])) {
       
           $pseudo = (string) htmlspecialchars($_POST["pseudo"]);
           $commentaire = (string) htmlspecialchars($_POST["commentaire"]);
@@ -75,7 +77,7 @@ function chapitresChoisis(){
         }
       
         $commentairesAll = $manager->commentairesAll($idChapitre);
-        $maxCommentaires = $manager->maxCommentaires($_GET["idChapitre"]);
+        $maxCommentaires = $manager->maxCommentaires($idChapitre);
         require "view/public/viewChapitresChoisis.php";
       } else {
         throw new Exception('ce chapitre n\'existe pas');

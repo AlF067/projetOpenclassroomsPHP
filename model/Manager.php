@@ -55,8 +55,10 @@ class Manager
 
   public function deleteChapitre($idChapitre)
   {
-    $supprimerChapitre = $this->_bdd->prepare("DELETE FROM `chapitres` WHERE `idChapitre`= :idChapitre");
+    $supprimerChapitre = $this->_bdd->prepare("DELETE FROM `chapitres` WHERE `id`= :idChapitre");
     $supprimerChapitre->execute(array('idChapitre' => $idChapitre));
+    $supprimerCommentaires = $this->_bdd->prepare("DELETE FROM `commentaires` WHERE `idChapitre`= :idChapitre");
+    $supprimerCommentaires->execute(array('idChapitre' => $idChapitre));
     return $supprimerChapitre;
   }
 
@@ -64,7 +66,7 @@ class Manager
 
   public function chaptre($idChapitre)
   {
-    $chapitresChoisis = $this->_bdd->prepare('SELECT * FROM chapitres WHERE idChapitre=? ');
+    $chapitresChoisis = $this->_bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
     $chapitresChoisis->execute(array($idChapitre));
 
     $donneesChapitresChoisis = $chapitresChoisis->fetch();
@@ -90,6 +92,23 @@ class Manager
   }
 
   /* NOMBRE TOTAL DE CHAPITRES */
+
+  public function allIdChaptres()
+  {
+
+    $chapitres = $this->_bdd->query('SELECT * FROM chapitres');
+
+    $chapitres->execute() or die(print_r($chapitres->errorInfo(), TRUE));
+    while ($donnees = $chapitres->fetch()) {
+      $chapitre[] = new Chapters($donnees);
+    }
+    $chapitres->closeCursor();
+    foreach ($chapitre as $obj) {
+      $allIdChapitres[] =  $obj->id();
+  }
+
+    return $allIdChapitres;
+  }
 
   public function maxChaptres()
   {
@@ -193,7 +212,8 @@ class Manager
 
   public function signaler($idCommentaire)
   {
-    $signaler = $this->_bdd->prepare("UPDATE `commentaires` SET `signalement`= true,`dateSignalement`= NOW() WHERE `id`= :idCommentaire");
+    $signaler = $this->_bdd->prepare("UPDATE `commentaires` SET `signalement`= true,`dateSignalement`= NOW()
+     WHERE `id`= :idCommentaire");
     $signaler->execute(array(':idCommentaire' => $idCommentaire));
 
     return $signaler;

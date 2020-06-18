@@ -4,7 +4,7 @@
 <?php ob_start();  ?>
 
 <section id="suppression">  
-        <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments&online=<?php echo $idConnection ?>">
+        <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments">
             <div>
                 <p>Souhaitez-vous réellement supprimer ce commentaire ?</p>
                 <p>(Toute suppression est définitive !)</p>

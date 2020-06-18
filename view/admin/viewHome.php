@@ -4,7 +4,7 @@
 <?php ob_start();  ?>
 
 <section id="ajout">
-    <p><a href="index.php?action=XHYEOSODID&actionAdmin=add&online=<?php echo $idConnection ?>"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
+    <p><a href="index.php?action=XHYEOSODID&actionAdmin=add"><i class="far fa-plus-square"></i> Ajouter un article</a></p>
 </section>
 <section>
     <?php if (isset($chapitreDejaExistant)) {
@@ -13,7 +13,7 @@
             <?php echo $chapitreDejaExistant ; ?>
     </div>
     <?php }
-    foreach ($manager->listChaptres($limitMin, 5) as $obj) {
+    foreach ($listChaptres as $obj) {
         $iconeSignalement = $manager->iconeSignalement($obj->idChapitre());
     ?>
 
@@ -23,9 +23,9 @@
                 <p><?php echo $obj->histoire() ?></p>
             </div>
             <div class="lireChapitre">
-                <a href="index.php?action=XHYEOSODID&actionAdmin=comments&online=<?php echo $idConnection ?>&idChapitre=<?php echo $obj->idChapitre() ?>">Commentaires</a>
-                <a href="index.php?action=XHYEOSODID&actionAdmin=deleteChapter&online=<?php echo $idConnection ?>&idChapitre=<?php echo $obj->idChapitre() ?>">Supprimer</a>
-                <a href="index.php?action=XHYEOSODID&actionAdmin=update&online=<?php echo $idConnection ?>&idChapitre=<?php echo $obj->idChapitre() ?>">Modifer</a>
+                <a href="index.php?action=XHYEOSODID&actionAdmin=comments&idChapitre=<?php echo $obj->id() ?>">Commentaires</a>
+                <a href="index.php?action=XHYEOSODID&actionAdmin=deleteChapter&idChapitre=<?php echo $obj->id() ?>">Supprimer</a>
+                <a href="index.php?action=XHYEOSODID&actionAdmin=update&idChapitre=<?php echo $obj->id() ?>">Modifer</a>
             </div>
         </div>
     <?php
@@ -47,7 +47,7 @@
             }
             ?>
             <div class="numerosPage">
-                <a href="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
+                <a href="index.php?action=XHYEOSODID&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
 
             </div>
 

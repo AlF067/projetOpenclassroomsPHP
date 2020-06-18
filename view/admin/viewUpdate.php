@@ -8,7 +8,7 @@
             <p>Modification d'un chapitre , <?php echo $chapitreChoisis['titre'] ; ?></p>
         </section>
         <section id="sectionFormulaire">
-            <form method="POST" action="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">  
+            <form class="formulaireAjoutEtModif" method="POST" action="index.php?action=XHYEOSODID">  
                 <div id="caseTitre">
                     <div>
                         <label for="modifTitre">Titre : </label><input type="text" name="modifTitre" id="modifTitre" value = "<?php echo $chapitreChoisis['titre'] ; ?>" >
@@ -29,7 +29,7 @@
                 <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ; ?>">
                 
             </form>
-            <a href="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">Retour</a>
+            <a href="index.php?action=XHYEOSODID">Retour</a>
         </section>
 
 <?php $contenuAdmin = ob_get_clean();  ?>

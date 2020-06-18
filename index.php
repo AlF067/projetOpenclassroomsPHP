@@ -4,7 +4,7 @@ require "model/Chapters.php";
 require "model/Manager.php";
 require "controller/public.php";
 require "controller/admin.php";
-
+session_start();
 try {
     if (isset($_GET["action"])) {
         if ($_GET["action"] == "contact") { //PARTIE PUBLIC
@@ -16,7 +16,11 @@ try {
         } elseif ($_GET["action"] == "lecture") {
             chapitresChoisis();
         } elseif ($_GET["action"] == "XHYEOSODID") { //PARTIE ADMINISTRATEUR
-            if ((isset($_POST["user"]) && isset($_POST["password"])) || isset($_GET["online"])) {
+            if (isset($_POST["deconnexion"])) {
+                deconnect();
+                session_destroy(); 
+            }
+            if (isset($_POST["user"]) && isset($_POST["password"]) || isset($_SESSION["connected"]) && $_SESSION["connected"] == true) {
                 if (isset($_GET["actionAdmin"])) {
                     if ($_GET["actionAdmin"] == "add") {
                         add();
@@ -38,7 +42,6 @@ try {
         }
     } else {
         home();
-        
     }
 } catch (Exception $e) {
     $erreur = "erreur : " . $e->getMessage();

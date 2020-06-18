@@ -14,7 +14,7 @@
                         <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
                         <p><?php echo $obj->commentaire() ?></p>
                         <div>
-                            <a href="index.php?action=XHYEOSODID&actionAdmin=comments&deleteComment=deleteComment&online=<?php echo $idConnection ?>&id=<?php echo $obj->id() ?>&idChapitre=<?php echo $obj->idChapitre() ?> ">Supprimer</a>
+                            <a href="index.php?action=XHYEOSODID&actionAdmin=comments&deleteComment=deleteComment&id=<?php echo $obj->id() ?>&idChapitre=<?php echo $obj->idChapitre() ?> ">Supprimer</a>
                         </div>
                     </div>
 
@@ -38,9 +38,9 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments&online=<?php echo $idConnection ?>">
+                <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments">
                     <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
-                    <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>>">
+                    <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['id'] ?>>">
                     <input type="hidden" name="limitMin" value="<?php echo $limitMin ?>">
                     <input type="hidden" name="limitMinSignal" value="<?php echo $limitMinSignal ?>">
                 </form> <?php $limitMin += 3; ?>
@@ -70,9 +70,9 @@
                 <div class="commentairesAfficher">
                     <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateSignalement() . "</span>" ?></h4>
                     <p><?php echo $obj->commentaire() ?></p>
-                    <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments&online=<?php echo $idConnection ?>">
+                    <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments">
                         <button type="submit" name="effacerSignalement" value="<?php echo $obj->id() ?>">Effacer signalement</button>
-                        <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>">
+                        <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['id'] ?>">
                         <input type="hidden" name="limitMinSignal" value="<?php echo $limitMinSignal ?>">
                         <input type="hidden" name="limitMin" value="<?php echo $limitMin ?>">
                     </form>
@@ -96,7 +96,7 @@
                     echo "<div class='slash'>/</div>";
                 }
                 ?>
-                <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments&online=<?php echo $idConnection ?>">
+                <form method="POST" action="index.php?action=XHYEOSODID&actionAdmin=comments">
                     <input type="submit" name="page" value="<?php echo $pages + 1; ?>">
                     <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ?>">
                     <input type="hidden" name="limitMinSignal" value="<?php echo $limitMinSignal ?>">
@@ -115,7 +115,7 @@
     <?php   ?>
 </div>
 
-<p id="retour"><a href="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">Retour</a></p>
+<p id="retour"><a href="index.php?action=XHYEOSODID">Retour</a></p>
 
 
 </div>

@@ -4,7 +4,7 @@
 <?php ob_start();  ?>
 
 <section id="suppression">  
-        <form method="POST" action="index.php?action=XHYEOSODID&online=<?php echo $idConnection ?>">
+        <form id="supprimer" method="POST" action="index.php?action=XHYEOSODID">
             <div>
                 <p>Souhaitez-vous réellement supprimer ce chapitre ?</p>
                 <p>(Toute suppression est définitive !)</p>

@@ -15,7 +15,7 @@
 
 <div id="rubriqueCommentaires">
     <div>
-        <form id="formulaireCommentaires" method="POST" action="index.php?action=lecture&idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>">
+        <form id="formulaireCommentaires" method="POST"  action="index.php?action=lecture&id=<?php echo $chapitreChoisis['id'] ?>#rubriqueCommentaires">
             <h3>Laisser un commentaire</h3>
             <input type="text" name="pseudo" placeholder="Votre pseudo" maxlength="12" required>
             <textarea name="commentaire" placeholder="Votre commentaire" maxlength="150" required></textarea>
@@ -38,7 +38,7 @@
                 <div class="commentairesAfficher">
                     <h4><?php echo $obj->pseudo() . " " . " ajouté le <span> " . $obj->dateHeure() . "</span>" ?></h4>
                     <p><?php echo $obj->commentaire() ?></p>
-                    <form action="index.php?action=lecture&idChapitre=<?php echo $chapitreChoisis['idChapitre'] ?>" method="POST">
+                    <form action="index.php?action=lecture&id=<?php echo $chapitreChoisis['id'] ?>#rubriqueCommentaires" method="POST">
                         <button type="submit" name="signalement" value="<?php echo $obj->id() ?>">signaler</button>
                     </form>
 

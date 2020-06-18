@@ -14,7 +14,7 @@
                     <?php echo $obj->histoire() ?>
                 </div>
                 <div class="lireChapitre">
-                    <a href="index.php?action=lecture&idChapitre=<?php echo $obj->idChapitre() ?>">Lire le chapitre</a>
+                    <a href="index.php?action=lecture&id=<?php echo $obj->id() ?>">Lire le chapitre</a>
                 </div>
             </div>
 
