@@ -11,7 +11,7 @@
     </script>
     <?php echo $linkStyles; ?>
     <?php echo $linkStylesGeneral; ?>
-    
+
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="logo/jpg" href="public/image/alaska22.jpg">
@@ -22,11 +22,11 @@
     <header>
         <p>PAGE ADMINISTRATEUR</p>
         <?php if (isset($_SESSION["connected"]) && $_SESSION["connected"] == true) {
-        
-         ?>
-        <form id="deconnexion" method="POST" action="index.php?action=XHYEOSODID">
-            <button name="deconnexion" value="deconnexion"><i class="fas fa-power-off"></i></button>
-        </form>
+
+        ?>
+            <form id="deconnexion" method="POST" action="index.php?action=XHYEOSODID">
+                <button name="deconnexion" value="deconnexion"><i class="fas fa-power-off"></i></button>
+            </form>
         <?php
         }
         ?>
@@ -40,7 +40,6 @@
             <p>Site réalisé par Alex Fritz dans le cadre d'une formation</p>
         </div>
     </footer>
-
 </body>
 
 </html>

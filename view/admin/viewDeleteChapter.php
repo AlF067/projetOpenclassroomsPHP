@@ -12,7 +12,7 @@
             <div>
                 <input type="submit" name="oui" value="oui">
                 <input type="submit" name="non" value="non">
-                <input type="hidden" name="idChapitre" value="<?php echo $_GET["idChapitre"] ; ?>" >      
+                <input type="hidden" name="id" value="<?php echo $_GET["id"] ; ?>" >      
             </div>
         </form>
 

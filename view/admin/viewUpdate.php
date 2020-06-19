@@ -13,9 +13,7 @@
                     <div>
                         <label for="modifTitre">Titre : </label><input type="text" name="modifTitre" id="modifTitre" value = "<?php echo $chapitreChoisis['titre'] ; ?>" >
                     </div>
-                    <div>
-                        <label for="modifId">Numéro du chapitre : <?php echo $chapitreChoisis['idChapitre'] ; ?></label>
-                    </div>
+                   
             </div>
                 </div>
                 <div id="caseHistoire">
@@ -26,7 +24,7 @@
                 <div id="bouton">
                     <button type="submit">Valider les modification du chapitre</button>
                 </div>
-                <input type="hidden" name="idChapitre" value="<?php echo $chapitreChoisis['idChapitre'] ; ?>">
+                <input type="hidden" name="id" value="<?php echo $chapitreChoisis['id'] ; ?>">
                 
             </form>
             <a href="index.php?action=XHYEOSODID">Retour</a>

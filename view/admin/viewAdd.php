@@ -1,4 +1,4 @@
-<?php $titleAdmin = "Ajout d'un chapitre" ; ?>
+<?php $titleAdmin = "Ajout d'un chapitre"; ?>
 <?php $linkStylesGeneral = '<link rel="stylesheet" type="text/css" href="public/styles/stylesAdmin.css">' ?>
 <?php $linkStyles = '<link rel="stylesheet" type="text/css" href="public/styles/stylesAjout.css">' ?>
 <?php ob_start();  ?>
@@ -6,13 +6,10 @@
     <p>Ajouter un chapitre</p>
 </section>
 <section id="sectionFormulaire">
-    <form class="formulaireAjoutEtModif" method="POST" action="index.php?action=XHYEOSODID">  
+    <form class="formulaireAjoutEtModif" method="POST" action="index.php?action=XHYEOSODID">
         <div id="caseTitre">
             <div>
                 <label for="titre">Titre : </label><input type="text" name="titre" id="titre">
-            </div>
-            <div>
-                <label for="idChapitre">Numéros du chapitre : </label><input type="text" name="idChapitre" id="id" required>
             </div>
         </div>
         <div id="caseHistoire">

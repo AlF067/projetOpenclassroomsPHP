@@ -8,30 +8,27 @@
 </section>
 <section>
     <?php if (isset($chapitreDejaExistant)) {
-     ?>
-    <div id="chapitreDejaExistant">
-            <?php echo $chapitreDejaExistant ; ?>
-    </div>
+    ?>
+        <div id="chapitreDejaExistant">
+            <?php echo $chapitreDejaExistant; ?>
+        </div>
     <?php }
     foreach ($listChaptres as $obj) {
-        $iconeSignalement = $manager->iconeSignalement($obj->idChapitre());
+        $iconeSignalement = $manager->iconeSignalement($obj->id());
     ?>
-
         <div class="blocChapitre">
             <div class="chapitre">
                 <h2><?php echo $obj->titre() . " " . " ajouté le " . $obj->dateAjout() . "<span id='iconeSignalement'> " . $iconeSignalement . "</span> " ?></h2>
                 <p><?php echo $obj->histoire() ?></p>
             </div>
             <div class="lireChapitre">
-                <a href="index.php?action=XHYEOSODID&actionAdmin=comments&idChapitre=<?php echo $obj->id() ?>">Commentaires</a>
-                <a href="index.php?action=XHYEOSODID&actionAdmin=deleteChapter&idChapitre=<?php echo $obj->id() ?>">Supprimer</a>
-                <a href="index.php?action=XHYEOSODID&actionAdmin=update&idChapitre=<?php echo $obj->id() ?>">Modifer</a>
+                <a href="index.php?action=XHYEOSODID&actionAdmin=comments&id=<?php echo $obj->id() ?>">Commentaires</a>
+                <a href="index.php?action=XHYEOSODID&actionAdmin=deleteChapter&id=<?php echo $obj->id() ?>">Supprimer</a>
+                <a href="index.php?action=XHYEOSODID&actionAdmin=update&id=<?php echo $obj->id() ?>">Modifer</a>
             </div>
         </div>
     <?php
-
     }
-
     ?>
     <div id="paginationChapitres">
         <?php
@@ -48,9 +45,7 @@
             ?>
             <div class="numerosPage">
                 <a href="index.php?action=XHYEOSODID&limitMin=<?php echo $pages * 5 ?> "><?php echo $pages + 1; ?></a>
-
             </div>
-
         <?php
             $commentairesParPage += 5;
             $limitMin += 5;
@@ -59,6 +54,5 @@
         ?>
     </div>
 </section>
-
 <?php $contenuAdmin = ob_get_clean();  ?>
 <?php require 'templateAdmin.php'; ?>
