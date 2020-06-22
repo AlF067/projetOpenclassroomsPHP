@@ -9,7 +9,7 @@ function adminHome()
 {
 
     $manager = new Manager;
-    $maxChaptres = $manager->maxChaptres();
+    $maxChaptires = $manager->maxChapters();
 
     if (isset($_POST["user"]) && isset($_POST["password"])) {
         if ($_POST["user"] == "alf" && $_POST["password"] == "mdp") {
@@ -23,30 +23,30 @@ function adminHome()
 
         /* Supprime un chapitre s'il y en a un a supprimer */
         if (isset($_POST["oui"])) {
-            $manager->deleteChapitre($_POST["id"]);
+            $manager->deleteChapter($_POST["id"]);
         }
 
         /* Modifie un chapitre s'il y en a un a ajouter */
         if (isset($_POST["modifHistoire"]) && isset($_POST["modifTitre"])) {
-            $manager->updateChaptre($_POST["id"], $_POST["modifTitre"], $_POST["modifHistoire"]);
+            $manager->updateChapter($_POST["id"], $_POST["modifTitre"], $_POST["modifHistoire"]);
         }
 
         /* Ajoute un chapitre s'il y en a un a ajouter */
         if (isset($_POST["histoire"]) && isset($_POST["titre"])) {
-            $manager->addChaptre($_POST["titre"], $_POST["histoire"]);
+            $manager->addChapter($_POST["titre"], $_POST["histoire"]);
         }
 
 
         /* Variable necessaire pour afficher la page de la liste des chapitre (5 chapitres par page) */
         if (isset($_GET["limitMin"])) {
             $limitMin = $_GET["limitMin"];
-            if ($limitMin >= $maxChaptres) {
+            if ($limitMin >= $maxChaptires) {
                 throw new Exception('Une erreur s\'est produite');
             }
         } else {
             $limitMin = 0;
         }
-        $listChaptres = $manager->listChaptres($limitMin, 5);
+        $listChapitres = $manager->listChapters($limitMin, 5);
 
         require "view/admin/viewHome.php";
     } else {
@@ -67,7 +67,7 @@ function update()
 {
     $manager = new Manager;
 
-    $chapitreChoisis = $manager->chaptre($_GET["id"]);
+    $chapitreChoisis = $manager->chapter($_GET["id"]);
     require "view/admin/viewUpdate.php";
 }
 
@@ -79,7 +79,7 @@ function delete()
 function comments()
 {
     $manager = new Manager;
-    $allIdChaptres = $manager->allIdChaptres();
+    $allIdChaptres = $manager->allIdChapters();
 
     //Commentaires affichés en fonction de l'id du chapitre 
     if (isset($_POST["id"])) {
@@ -94,7 +94,7 @@ function comments()
         throw new Exception('le chapitre choisi n\'existe pas');
     }
 
-    $chapitreChoisis = $manager->chaptre($idChapitre);
+    $chapitreChoisis = $manager->chapter($idChapitre);
 
     /* Supprime un commentaire */
     if (isset($_POST["oui"]) && isset($_POST["idComment"])) {

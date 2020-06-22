@@ -24,7 +24,7 @@ class Manager
   /* PARIE CHAPITRES */
   /* AJOUTER UN CHAPITRE */
 
-  public function addChaptre($titre, $histoire)
+  public function addChapter($titre, $histoire)
   {
     $ajouterChapitre = $this->_bdd->prepare("INSERT INTO `chapitres`(`titre`, `histoire`, `dateAjout`) VALUES ( :titre, :histoire, CURDATE())");
     $ajouterChapitre->bindValue(':titre', $titre, PDO::PARAM_STR);
@@ -35,7 +35,7 @@ class Manager
 
   /* MODIFIER UN CHAPITRE */
 
-  public function updateChaptre($id, $titre, $histoire)
+  public function updateChapter($id, $titre, $histoire)
   {
     $modifierChapitre = $this->_bdd->prepare("UPDATE `chapitres` SET `titre`= :titre,`histoire`= :histoire WHERE `id`= :id");
     $modifierChapitre->bindValue(':id', $id, PDO::PARAM_INT);
@@ -47,7 +47,7 @@ class Manager
 
   /* SUPPRIMER UN CHAPITRE */
 
-  public function deleteChapitre($idChapitre)
+  public function deleteChapter($idChapitre)
   {
     $supprimerChapitre = $this->_bdd->prepare("DELETE FROM `chapitres` WHERE `id`= :idChapitre");
     $supprimerChapitre->execute(array('idChapitre' => $idChapitre));
@@ -58,7 +58,7 @@ class Manager
 
   /* SELECTIONNE UN CHAPITRE DEFINI */
 
-  public function chaptre($idChapitre)
+  public function chapter($idChapitre)
   {
     $chapitresChoisis = $this->_bdd->prepare('SELECT * FROM chapitres WHERE id=? ');
     $chapitresChoisis->execute(array($idChapitre));
@@ -70,7 +70,7 @@ class Manager
 
   /* SELECTIONNE TOUS LES CHAPITRES */
 
-  public function listChaptres($limitMin, $limitMax)
+  public function listChapters($limitMin, $limitMax)
   {
     $chapitres = $this->_bdd->prepare('SELECT * FROM chapitres ORDER BY id DESC LIMIT :limitMin , :limitMax');
     $chapitres->bindValue(':limitMin', $limitMin, PDO::PARAM_INT);
@@ -85,7 +85,7 @@ class Manager
 
   /* NOMBRE TOTAL DE CHAPITRES */
 
-  public function allIdChaptres()
+  public function allIdChapters()
   {
     $chapitres = $this->_bdd->query('SELECT * FROM chapitres');
     $chapitres->execute() or die(print_r($chapitres->errorInfo(), TRUE));
@@ -99,7 +99,7 @@ class Manager
     return $allIdChapitres;
   }
 
-  public function maxChaptres()
+  public function maxChapters()
   {
     $chapitres = $this->_bdd->query('SELECT * FROM chapitres ORDER BY id DESC ');
     $chapitres->execute() or die(print_r($chapitres->errorInfo(), TRUE));

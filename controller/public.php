@@ -1,11 +1,11 @@
 <?php
 function home(){
   $manager = new Manager;
-  $homeChapters = $manager->listChaptres(0, 3);
+  $homeChapters = $manager->listChapters(0, 3);
   require "view/public/viewHome.php";
 }
 
-function chaptres()
+function postListChaptres()
 {
     $manager = new Manager;
     if (isset($_GET["limitMin"])) {
@@ -13,11 +13,11 @@ function chaptres()
     } else {
         $limitMin = (int) 0;
     }
-    $maxChaptres = $manager->maxChaptres();
+    $maxChaptres = $manager->maxChapters();
 
     if ($limitMin < $maxChaptres) {
 
-        $listChaptres = $manager->listChaptres($limitMin, 5);
+        $listChaptres = $manager->listChapters($limitMin, 5);
         $pages = 0;
         $limitMin = 0;
         $commentairesParPage = 0;
@@ -28,9 +28,9 @@ function chaptres()
     }
 }
 
-function chapitresChoisis(){
+function postChapitresChoisis(){
     $manager = new Manager;
-    $allIdChaptres = $manager->allIdChaptres();
+    $allIdChaptres = $manager->allIdChapters();
     
     if (isset($_GET["id"])) {
         $idChapitre = (int) $_GET["id"];
@@ -42,7 +42,7 @@ function chapitresChoisis(){
       if (in_array($idChapitre, $allIdChaptres)) {
       
       
-        $chapitreChoisis = $manager->chaptre($idChapitre);
+        $chapitreChoisis = $manager->chapter($idChapitre);
       
         /* Enregistre le signalement dans la BDD s'il y en a  */
       

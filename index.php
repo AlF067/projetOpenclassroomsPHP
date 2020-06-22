@@ -12,9 +12,9 @@ try {
         } elseif ($_GET["action"] == "biographie") {
             require "view/public/viewBiographie.php";
         } elseif ($_GET["action"] == "chaptres") {
-            chaptres();
+            postListChaptres();
         } elseif ($_GET["action"] == "lecture") {
-            chapitresChoisis();
+            postChapitresChoisis();
         } elseif ($_GET["action"] == "XHYEOSODID") { //PARTIE ADMINISTRATEUR
             session_start();
             if (isset($_POST["deconnexion"])) {

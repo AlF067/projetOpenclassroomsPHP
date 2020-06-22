@@ -13,7 +13,7 @@
             <?php echo $chapitreDejaExistant; ?>
         </div>
     <?php }
-    foreach ($listChaptres as $obj) {
+    foreach ($listChapitres as $obj) {
         $iconeSignalement = $manager->iconeSignalement($obj->id());
     ?>
         <div class="blocChapitre">
@@ -36,7 +36,7 @@
         $limitMin = 0;
         $commentairesParPage = 0;
         echo "<div id='nombreDePages'>Page : </div>";
-        while ($limitMin < $manager->maxChaptres()) {
+        while ($limitMin < $maxChaptires) {
         ?>
             <?php
             if (!$pages == 0) {
